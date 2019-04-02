@@ -21,8 +21,22 @@ body {
 h1 {
   color: #FFF;
   font-weight: bold;
-  font-size: 16px;
-  margin: 20px 5px;
+  font-size: 18px;
+  margin: 20px 10px;
+}
+
+h2 {
+  color: #BFBFDD;
+  font-size: 12px;
+  font-weight: light;
+  margin: 20px 10px;
+}
+
+.starred-filter-button {
+  background-color: #5356A4;
+  color: #E9E9F3;
+  border: 1px solid #353567;
+  
 }
 
 .section-right {
