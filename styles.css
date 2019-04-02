@@ -20,6 +20,10 @@ body {
 }
 
 .section-right {
-	grid-row: 40% 60%;
+	/*grid-row: 40% 60%;*/
 
+}
+
+.top-input {
+	
 }
