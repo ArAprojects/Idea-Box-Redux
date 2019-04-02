@@ -1,0 +1,29 @@
+* {
+ /* border: 1px solid pink;*/
+  box-sizing: border-box;
+  font-family: 'Open Sans', Optima, sans-serif;
+  margin:0;
+  padding:0;
+  border: 1px solid black;
+}
+
+body {
+	display: grid;
+	grid-template-columns: 20% 80%;
+
+
+}
+
+.section-left {
+	/*grid-column: 100%*/
+
+}
+
+.section-right {
+	/*grid-row: 40% 60%;*/
+
+}
+
+.top-input {
+	
+}
