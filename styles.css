@@ -49,7 +49,15 @@ h2 {
   margin-bottom: 0;
 }
 
-.new-quality-input
+.new-quality-input {
+  height: 40px;
+  margin: 0px 10px 20px 10px;
+  width: 90%;
+}
+
+.sidebar-form {
+  border-bottom: 1px solid #353567;
+}
 
 .section-right {
 	/*grid-row: 40% 60%;*/
