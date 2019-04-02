@@ -10,20 +10,26 @@
 body {
 	display: grid;
 	grid-template-columns: 20% 80%;
-
-
 }
 
 .section-left {
 	/*grid-column: 100%*/
-
 }
 
 .section-right {
-	/*grid-row: 40% 60%;*/
 
 }
 
 .top-input {
-	
+  background-color: #A9AAd2;
+}
+
+.bottom-display {
+  background-color: #EAEAEA;
+  display: grid;
+  grid-template-columns: 30% 30% 30%;
+}
+
+.card-title {
+  background-color: #1F1F3D;
 }
