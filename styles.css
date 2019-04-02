@@ -27,14 +27,22 @@ body {
 .bottom-display {
   background-color: #EAEAEA;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  justify-content: center;
+  grid-template-columns: 31% 31% 31%;
   grid-gap: 20px 20px;
-  justify-content: space-between;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
-.card {
+.card-body-title {
+  margin: 10px;
 }
 
 .card-title {
   background-color: #1F1F3D;
+}
+
+.idead-title {
+  margin-top: 10px;
+  margin-bottom: 15px;
 }
