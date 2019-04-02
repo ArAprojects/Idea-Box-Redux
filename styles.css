@@ -1,7 +1,7 @@
 * {
  /* border: 1px solid pink;*/
   box-sizing: border-box;
-  font-family: 'Open Sans', Optima, sans-serif;
+  font-family: 'Open Sans';
   margin:0;
   padding:0;
   border: 1px solid black;
@@ -21,7 +21,7 @@ body {
 h1 {
   color: #FFF;
   font-weight: bold;
-  font-size: 18px;
+  font-size: 16px;
   margin: 20px 10px;
 }
 
@@ -32,12 +32,24 @@ h2 {
   margin: 20px 10px;
 }
 
-.starred-filter-button {
+.purple-sidebar-btn {
   background-color: #5356A4;
   color: #E9E9F3;
   border: 1px solid #353567;
+  font-size: 14px;
+  font-weight: bold;
+  font-stretch: expanded;
+  padding: 10px 0px;
+  width: 90%;
+  margin: 0px 10px 20px 10px;
   
 }
+
+.new-quality-label {
+  margin-bottom: 0;
+}
+
+.new-quality-input
 
 .section-right {
 	/*grid-row: 40% 60%;*/
