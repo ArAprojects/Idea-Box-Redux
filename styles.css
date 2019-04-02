@@ -16,8 +16,13 @@ body {
 
 .section-left {
 	background-color: #1F1F3D;
-  color: #FFF;
+}
 
+h1 {
+  color: #FFF;
+  font-weight: bold;
+  font-size: 16px;
+  margin: 20px 5px;
 }
 
 .section-right {
