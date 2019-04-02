@@ -15,7 +15,8 @@ body {
 }
 
 .section-left {
-	/*grid-column: 100%*/
+	background-color: #1F1F3D;
+  color: #FFF;
 
 }
 
