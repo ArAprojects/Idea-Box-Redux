@@ -34,11 +34,9 @@ function createIdeaCard() {
       <button class="down-quality-button" type="button" name="button">X</button>
     </div>
   </aside>
-
+  
   ` + bottomDisplay.innerHTML;
-
 }
-
 
 
 //-----------------delete-card----------------//
