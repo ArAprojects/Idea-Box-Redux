@@ -1,3 +1,4 @@
+
 // ---------------Query-selectors--------------------//
 // var card = document.querySelector(".card")
 var deleteButton = document.querySelector(".delete-card-button");
@@ -13,3 +14,7 @@ bottomDisplay.addEventListener('click', deleteCard);
     e.target.closest(".card").remove();
   }
 };
+
+
+var objectArrayOfIdeas = [];
+
