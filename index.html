@@ -9,24 +9,27 @@
   </head>
   <body>
     <section class="section-left">
-      <header>
+      <header class="sidebar-form">
         <h1>IdeaBox Redux</h1>
       </header>
-      <form class="star-filter" action="index.html" method="post">
+      <form class="star-filter sidebar-form" action="index.html" method="post">
         <h2>Filter Starred Ideas</h2>
-        <button class="starred-filter-button" type="button" name="button"></button>
+        <button class="starred-filter-button purple-sidebar-btn" type="button" name="button">Show Starred Ideas</button>
       </form>
-      <form class="quality-filter" action="index.html" method="post">
+      <form class="quality-filter sidebar-form" action="index.html" method="post">
         <h2>Filter by Quality</h2>
-        <button class="swill-button" type="button" name="button"></button>
-        <button class="plausible-button" type="button" name="button"></button>
-        <button class="genius-button" type="button" name="button"></button>
+      <div class="filter-buttons">  
+        <button class="swill-button filter-btn" type="button" name="button">Swill</button>
+        <button class="plausible-button filter-btn" type="button" name="button">Plausible</button>
+        <button class="genius-button filter-btn" type="button" name="button">Genius</button>
+      </div>
       </form>
-      <form class="new-quality-form" action="index.html" method="post">
-        <label for="new-quality-input">New Quality</label>
-        <input id="new-quality-input" type="text" name="" value="">
-        <button class="add-new-quality-button" type="button" name="button">Add New Quality</button>
+      <form class="new-quality-form sidebar-form" action="index.html" method="post">
+        <label for="new-quality-input"><h2 class="new-quality-label">New Quality</h2></label>
+        <input class="new-quality-input" id="new-quality-input" type="text" name="" value="">
+        <button class="add-new-quality-button purple-sidebar-btn" type="button" name="button">Add New Quality</button>
       </form>
+      <div class="empty-sidebar-bottom-box"></div>
     </section>
     <section class="section-right">
       <article class="top-input">
@@ -53,21 +56,72 @@
       <article class="bottom-display">
         <aside class="card">
           <div class="card-title">
-            <button class="star-card-button" type="button" name="button"></button>
-            <button class="delete-card-button" type="button" name="button"></button>
+            <button class="star-card-button" type="button" name="button">X</button>
+            <button class="delete-card-button" type="button" name="button">X</button>
           </div>
           <div class="card-body-title">
             <h3 class="idea-title">Idea title</h3>
-            <p class="card-body-text">placeholder placeholder placeholder placeholder placeholder placeholder placeholder
-            placeholderplaceholderplaceholderplaceholderplaceholderplaceholderplaceholder</p>
+            <p class="card-body-text">placeholder placeholder placeholder placeholder placeholder placeholder placeholde placeholder placeholder placeholder placeholder placeholder
+              placeholder placeholder</p>
           </div>
           <div class="card-footer">
-            <button class="up-quality-button" type="button" name="button"></button>
+            <button class="up-quality-button" type="button" name="button">X</button>
             <h4>Quality:<span class="quality-level-selection">placeholder</span></h4>
-            <button class="down-quality-button" type="button" name="button"></button>
+            <button class="down-quality-button" type="button" name="button">X</button>
+          </div>
+        </aside>
+        <aside class="card">
+          <div class="card-title">
+            <button class="star-card-button" type="button" name="button">X</button>
+            <button class="delete-card-button" type="button" name="button">X</button>
+          </div>
+          <div class="card-body-title">
+            <h3 class="idea-title">Idea title</h3>
+            <p class="card-body-text">placeholder placeholder placeholder placeholder placeholder placeholder placeholde placeholder placeholder placeholder placeholder placeholder
+              placeholder placeholder</p>
+          </div>
+          <div class="card-footer">
+            <button class="up-quality-button" type="button" name="button">X</button>
+            <h4>Quality:<span class="quality-level-selection">placeholder</span></h4>
+            <button class="down-quality-button" type="button" name="button">X</button>
+          </div>
+        </aside>
+        <aside class="card">
+          <div class="card-title">
+            <button class="star-card-button" type="button" name="button">X</button>
+            <button class="delete-card-button" type="button" name="button">X</button>
+          </div>
+          <div class="card-body-title">
+            <h3 class="idea-title">Idea title</h3>
+            <p class="card-body-text">placeholder placeholder placeholder placeholder placeholder placeholder placeholde placeholder placeholder placeholder placeholder placeholder
+              placeholder placeholder</p>
+          </div>
+          <div class="card-footer">
+            <button class="up-quality-button" type="button" name="button">X</button>
+            <h4>Quality:<span class="quality-level-selection">placeholder</span></h4>
+            <button class="down-quality-button" type="button" name="button">X</button>
+          </div>
+        </aside>
+        <aside class="card">
+          <div class="card-title">
+            <button class="star-card-button" type="button" name="button">X</button>
+            <button class="delete-card-button" type="button" name="button">X</button>
+          </div>
+          <div class="card-body-title">
+            <h3 class="idea-title">Idea title</h3>
+            <p class="card-body-text">placeholder placeholder placeholder placeholder placeholder placeholder placeholde placeholder placeholder placeholder placeholder placeholder
+              placeholder placeholder</p>
+          </div>
+          <div class="card-footer">
+            <button class="up-quality-button" type="button" name="button">X</button>
+            <h4>Quality:<span class="quality-level-selection">placeholder</span></h4>
+            <button class="down-quality-button" type="button" name="button">X</button>
           </div>
         </aside>
       </article>
     </section>
+    <script type="text/javascript" src="idea.js"></script>
+    <script type="text/javascript" src="main.js"></script>
   </body>
+<script type="text/javascript" src = "main.js"></script>
 </html>

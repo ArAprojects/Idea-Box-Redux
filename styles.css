@@ -1,7 +1,7 @@
 * {
  /* border: 1px solid pink;*/
   box-sizing: border-box;
-  font-family: 'Open Sans', Optima, sans-serif;
+  font-family: 'Open Sans';
   margin:0;
   padding:0;
   border: 1px solid black;
@@ -10,15 +10,76 @@
 body {
 	display: grid;
 	grid-template-columns: 20% 80%;
-
 }
 
 .section-left {
+	background-color: #1F1F3D;
+}
 
+h1 {
+  color: #FFF;
+  font-weight: bold;
+  font-size: 16px;
+  margin: 20px 10px;
+}
+
+h2 {
+  color: #BFBFDD;
+  font-size: 12px;
+  font-weight: light;
+  margin: 20px 10px;
+}
+
+.purple-sidebar-btn {
+  background-color: #5356A4;
+  color: #E9E9F3;
+  border: 1px solid #353567;
+  font-size: 14px;
+  font-weight: bold;
+  font-stretch: expanded;
+  padding: 10px 0px;
+  width: 90%;
+  margin: 0px 10px 20px 10px;
+}
+
+.new-quality-label {
+  margin-bottom: 0;
+}
+
+.new-quality-input {
+  height: 40px;
+  margin: 0px 10px 20px 10px;
+  width: 90%;
+}
+
+.empty-sidebar-bottom-box {
+  height: 400px;
+}
+
+.filter-buttons {
+  display: flex;
+  flex-direction: column;
+}
+
+.filter-btn {
+  font-size: 16px;
+  font-weight: light;
+  text-align: left;
+  background-color: #1F1F3D;
+  border: none; 
+  color: #FFF;
+  padding-left: 10px;
+}
+.filter-btn:hover {
+  background-color: #D14119;
+  border-left: 3px solid #F58E72;
+}
+
+.sidebar-form {
+  border-bottom: 1px solid #353567;
 }
 
 .section-right {
-
 }
 
 .top-input {
@@ -27,7 +88,6 @@ body {
 }
 
 .create-card-inputs {
-
 	align-items: center;
 	display: table;
 	margin: 10px;
@@ -41,4 +101,43 @@ body {
 	display: grid;
 	grid-template-columns: 	minmax(300px, 1fr));
     grid-gap: 20px;
-}*/
+*/
+
+
+.bottom-display {
+  background-color: #EAEAEA;
+  display: grid;
+  justify-content: center;
+  grid-template-columns: 31% 31% 31%;
+  grid-gap: 20px 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.card-body-title {
+  margin: 10px;
+}
+
+.card-title {
+  background-color: #1F1F3D;
+  display: flex;
+  justify-content: space-between;
+}
+
+.idea-title {
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+
+.card-footer h4 {
+  text-align: center;
+  color: #E9E9F3;
+  font-size: 20px;
+}
+
+.card-footer {
+  background-color: #5356A4;
+  justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
+}
