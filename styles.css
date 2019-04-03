@@ -10,8 +10,6 @@
 body {
 	display: grid;
 	grid-template-columns: 20% 80%;
-
-
 }
 
 .section-left {
@@ -83,10 +81,47 @@ h2 {
 }
 
 .section-right {
-	/*grid-row: 40% 60%;*/
 
 }
 
 .top-input {
-	
+  background-color: #A9AAD2;
+}
+
+.bottom-display {
+  background-color: #EAEAEA;
+  display: grid;
+  justify-content: center;
+  grid-template-columns: 31% 31% 31%;
+  grid-gap: 20px 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.card-body-title {
+  margin: 10px;
+}
+
+.card-title {
+  background-color: #1F1F3D;
+  display: flex;
+  justify-content: space-between;
+}
+
+.idea-title {
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+
+.card-footer h4 {
+  text-align: center;
+  color: #E9E9F3;
+  font-size: 20px;
+}
+
+.card-footer {
+  background-color: #5356A4;
+  justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
