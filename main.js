@@ -2,18 +2,26 @@
 // ---------------Query-selectors-------  -------------------//
 var deleteButton = document.querySelector(".delete-card-button");
 var bottomDisplay = document.querySelector(".bottom-display");
-var cardTitle = document.querySelector("#card-title-input");
-var cardBody = document.querySelector("#text-body-input");
+var cardTitleInput = document.querySelector("#card-title-input");
+var cardBodyInput = document.querySelector("#text-body-input");
 var saveButton = document.querySelector(".save-button")
 
 
 // ---------------Event-listeners---------------------------//
 bottomDisplay.addEventListener('click', deleteCard);
 saveButton.addEventListener('click', createIdeaCard);
+saveButton.addEventListener('click', resetInputs)
 
 
 
 //-----------------Functions-------------------------------//
+  function resetInputs(){
+    cardBodyInput.value = "";
+    cardTitleInput.value = "";
+  }
+
+//----------------clearing-inputs-------------//
+
 
 
 //------------------append-card---------------//
@@ -25,8 +33,8 @@ function createIdeaCard() {
       <button class="delete-card-button" type="button" name="button">X</button>
     </div>
     <div class="card-body-title">
-      <h3 class="idea-title">${cardTitle.value}</h3>
-      <p class="card-body-text">${cardBody.value}</p>
+      <h3 class="idea-title">${cardTitleInput.value}</h3>
+      <p class="card-body-text">${cardBodyInput.value}</p>
     </div>
     <div class="card-footer">
       <button class="up-quality-button" type="button" name="button">X</button>
@@ -34,7 +42,7 @@ function createIdeaCard() {
       <button class="down-quality-button" type="button" name="button">X</button>
     </div>
   </aside>
-  
+
   ` + bottomDisplay.innerHTML;
 }
 
