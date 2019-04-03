@@ -40,7 +40,6 @@ h2 {
   padding: 10px 0px;
   width: 90%;
   margin: 0px 10px 20px 10px;
-  
 }
 
 .new-quality-label {
@@ -81,12 +80,29 @@ h2 {
 }
 
 .section-right {
-
 }
 
 .top-input {
-  background-color: #A9AAD2;
+	background-color: #A9AAD2;
+	height: 300px;
 }
+
+.create-card-inputs {
+	align-items: center;
+	display: table;
+	margin: 10px;
+	border: none;
+	/*
+	grid-template-columns: 	minmax(300px, 1fr));
+    grid-gap: 20px;*/
+}
+/*
+.top-input-form {
+	display: grid;
+	grid-template-columns: 	minmax(300px, 1fr));
+    grid-gap: 20px;
+*/
+
 
 .bottom-display {
   background-color: #EAEAEA;
