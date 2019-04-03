@@ -21,7 +21,7 @@ body {
 }
 
 .top-input {
-  background-color: #A9AAd2;
+  background-color: #A9AAD2;
 }
 
 .bottom-display {
@@ -40,9 +40,24 @@ body {
 
 .card-title {
   background-color: #1F1F3D;
+  display: flex;
+  justify-content: space-between;
 }
 
-.idead-title {
+.idea-title {
   margin-top: 10px;
   margin-bottom: 15px;
+}
+
+.card-footer h4 {
+  text-align: center;
+  color: #E9E9F3;
+  font-size: 20px;
+}
+
+.card-footer {
+  background-color: #5356A4;
+  justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
