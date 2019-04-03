@@ -55,6 +55,29 @@ h2 {
   width: 90%;
 }
 
+.empty-sidebar-bottom-box {
+  height: 400px;
+}
+
+.filter-buttons {
+  display: flex;
+  flex-direction: column;
+}
+
+.filter-btn {
+  font-size: 16px;
+  font-weight: light;
+  text-align: left;
+  background-color: #1F1F3D;
+  border: none; 
+  color: #FFF;
+  padding-left: 10px;
+}
+.filter-btn:hover {
+  background-color: #D14119;
+  border-left: 3px solid #F58E72;
+}
+
 .sidebar-form {
   border-bottom: 1px solid #353567;
 }
