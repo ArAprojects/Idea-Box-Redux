@@ -116,7 +116,9 @@ h2 {
 	font-size: 12px;
 	color: #1F1F3D;
 }
-
+button:disabled {
+  background-color: #BFBFDD;
+}
 .save-button {
 	color: #FFFFFF;
 	background-color: #1F1F3D;

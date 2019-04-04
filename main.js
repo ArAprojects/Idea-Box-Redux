@@ -6,22 +6,23 @@ var cardTitleInput = document.querySelector("#card-title-input");
 var cardBodyInput = document.querySelector("#text-body-input");
 var saveButton = document.querySelector(".save-button")
 
-
 // ---------------Event-listeners---------------------------//
 bottomDisplay.addEventListener('click', deleteCard);
 saveButton.addEventListener('click', createIdeaCard);
 saveButton.addEventListener('click', resetInputs)
-
+cardTitleInput.addEventListener('keyup', checkCardInputs);
+cardBodyInput.addEventListener('keyup', checkCardInputs);
 
 
 //-----------------Functions-------------------------------//
-  function resetInputs(){
-    cardBodyInput.value = "";
-    cardTitleInput.value = "";
-  }
+  
+ 
 
 //----------------clearing-inputs-------------//
-
+function resetInputs(){
+    cardBodyInput.value = "";
+    cardTitleInput.value = "";
+}
 
 
 //------------------append-card---------------//
@@ -53,6 +54,21 @@ function createIdeaCard() {
     e.target.closest(".card").remove();
   }
 };
+
+//-------------top-right-input-validation-------------//
+function checkCardInputs () {
+  var TitleInput = cardTitleInput.value;
+  var BodyInput = cardBodyInput.value;
+
+  if (TitleInput === "" || BodyInput === "") {
+    saveButton.disabled = true;
+    console.log('Save button disabled');
+  } else {
+    saveButton.disabled = false;
+    console.log('Save Button sb lit!');
+  }
+
+}
 
 
 var objectArrayOfIdeas = [];
