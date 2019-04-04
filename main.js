@@ -9,14 +9,28 @@ var saveButton = document.querySelector(".save-button")
 // ---------------Event-listeners---------------------------//
 bottomDisplay.addEventListener('click', deleteCard);
 saveButton.addEventListener('click', createIdeaCard);
-saveButton.addEventListener('click', resetInputs)
+saveButton.addEventListener('click', resetInputs);
+saveButton.addEventListener('click', saveCardInfo);
+saveButton.addEventListener('click', checkCardInputs);
 cardTitleInput.addEventListener('keyup', checkCardInputs);
 cardBodyInput.addEventListener('keyup', checkCardInputs);
 
 
 //-----------------Functions-------------------------------//
   
- 
+ function saveCardInfo(e){
+   var cardID = 201903042139;
+   var cardTitle = "This is the day";
+   var cardBody = "Your life will surely change";
+   //  var cardTitle = cardTitleInput.value; 
+  //  var cardBody = cardBodyInput.value;
+  //  console.log('Card body value is: ' + cardBody);
+
+  idea = new Idea(cardID, cardTitle, cardBody);
+  
+  idea.saveToStorage();
+
+}
 
 //----------------clearing-inputs-------------//
 function resetInputs(){
@@ -52,6 +66,8 @@ function createIdeaCard() {
   function deleteCard(e) {
   if (e.target.className === "delete-card-button") {
     e.target.closest(".card").remove();
+    idea.deleteFromStorage(idea.id);
+    // idea.updateQuality(idea.id);
   }
 };
 
