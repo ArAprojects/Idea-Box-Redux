@@ -4,13 +4,16 @@ var deleteButton = document.querySelector(".delete-card-button");
 var bottomDisplay = document.querySelector(".bottom-display");
 var cardTitleInput = document.querySelector("#card-title-input");
 var cardBodyInput = document.querySelector("#text-body-input");
-var saveButton = document.querySelector(".save-button")
+var saveButton = document.querySelector(".save-button");
+
+var cardArray = [];
+var cardArrayCntr = 0;
 
 // ---------------Event-listeners---------------------------//
 bottomDisplay.addEventListener('click', deleteCard);
 saveButton.addEventListener('click', createIdeaCard);
-saveButton.addEventListener('click', resetInputs);
 saveButton.addEventListener('click', saveCardInfo);
+saveButton.addEventListener('click', resetInputs);
 saveButton.addEventListener('click', checkCardInputs);
 cardTitleInput.addEventListener('keyup', checkCardInputs);
 cardBodyInput.addEventListener('keyup', checkCardInputs);
@@ -19,16 +22,17 @@ cardBodyInput.addEventListener('keyup', checkCardInputs);
 //-----------------Functions-------------------------------//
   
  function saveCardInfo(e){
-   var cardID = 201903042139;
-   var cardTitle = "This is the day";
-   var cardBody = "Your life will surely change";
-   //  var cardTitle = cardTitleInput.value; 
-  //  var cardBody = cardBodyInput.value;
-  //  console.log('Card body value is: ' + cardBody);
+   var cardID = Date.now();
+  //  var cardTitle = "This is the day";
+  //  var cardBody = "Your life will surely change";
+    var cardTitle = cardTitleInput.value; 
+   var cardBody = cardBodyInput.value;
+   console.log('Card body value is: ' + cardBodyInput.value);
 
-  idea = new Idea(cardID, cardTitle, cardBody);
+  idea = new Idea(cardID, cardTitleInput.value, cardBodyInput.value);
+  cardArray[cardArrayCntr] = idea;
   
-  idea.saveToStorage();
+  idea.saveToStorage(cardArray);
 
 }
 
