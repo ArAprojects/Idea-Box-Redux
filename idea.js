@@ -8,18 +8,11 @@ class Idea {
 
   }
 
-  saveToStorage() {
-    var cardInfo = {
-      id: this.id,
-      title: this.title,
-      body: this.body,
-      star: this.star,
-      quality: this.quality
-    }
-    var stringifiedContact = JSON.stringify(cardInfo);
-    console.log('Save to Storage ' + cardInfo); 
+  saveToStorage(inputArray) {
+    console.log('save storage array: ' + inputArray);
+    var stringifiedContact = JSON.stringify(inputArray);
     // localStorage.setItem('cardInfo', stringifiedContact);
-    localStorage.setItem(this.id, stringifiedContact);
+    localStorage.setItem(inputArray[0].id, stringifiedContact);
 
  }
 
