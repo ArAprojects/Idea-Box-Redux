@@ -33,8 +33,8 @@ function createIdeaCard() {
       <button class="delete-card-button" type="button" name="button">X</button>
     </div>
     <div class="card-body-title">
-      <h3 class="idea-title">${cardTitleInput.value}</h3>
-      <p class="card-body-text">${cardBodyInput.value}</p>
+      <h3 class="idea-title" contenteditable="true">${cardTitleInput.value}</h3>
+      <p class="card-body-text" contenteditable="true">${cardBodyInput.value}</p>
     </div>
     <div class="card-footer">
       <button class="up-quality-button" type="button" name="button">X</button>
