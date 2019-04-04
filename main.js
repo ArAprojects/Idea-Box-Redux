@@ -1,47 +1,74 @@
 
-// ---------------Query-selectors--------------------//
-// var card = document.querySelector(".card")
+// ---------------Query-selectors-------  -------------------//
 var deleteButton = document.querySelector(".delete-card-button");
 var bottomDisplay = document.querySelector(".bottom-display");
-
 var cardTitleInput = document.querySelector("#card-title-input");
 var cardBodyInput = document.querySelector("#text-body-input");
-var saveIdeaButton = document.querySelector(".save-button");
+var saveButton = document.querySelector(".save-button")
 
-// ---------------Event-listeners---------------------//
+// ---------------Event-listeners---------------------------//
 bottomDisplay.addEventListener('click', deleteCard);
+saveButton.addEventListener('click', createIdeaCard);
+saveButton.addEventListener('click', resetInputs)
 cardTitleInput.addEventListener('keyup', checkCardInputs);
 cardBodyInput.addEventListener('keyup', checkCardInputs);
-// window.addEventListener('load', setup(), true);
 
 
-//-----------------Functions-------------------//
+//-----------------Functions-------------------------------//
+  
+ 
+
+//----------------clearing-inputs-------------//
+function resetInputs(){
+    cardBodyInput.value = "";
+    cardTitleInput.value = "";
+}
+
+
+//------------------append-card---------------//
+function createIdeaCard() {
+  bottomDisplay.innerHTML = `
+  <aside class="card">
+    <div class="card-title">
+      <button class="star-card-button" type="button" name="button">X</button>
+      <button class="delete-card-button" type="button" name="button">X</button>
+    </div>
+    <div class="card-body-title">
+      <h3 class="idea-title" contenteditable="true">${cardTitleInput.value}</h3>
+      <p class="card-body-text" contenteditable="true">${cardBodyInput.value}</p>
+    </div>
+    <div class="card-footer">
+      <button class="up-quality-button" type="button" name="button">X</button>
+      <h4>Quality:<span class="quality-level-selection">placeholder</span></h4>
+      <button class="down-quality-button" type="button" name="button">X</button>
+    </div>
+  </aside>
+
+  ` + bottomDisplay.innerHTML;
+}
+
+
+//-----------------delete-card----------------//
   function deleteCard(e) {
   if (e.target.className === "delete-card-button") {
     e.target.closest(".card").remove();
   }
 };
- 
-// //Function to set button status on page load
-// function setup() {
-//   saveIdeaButton.disabled = true;
-// }
 
+//-------------top-right-input-validation-------------//
 function checkCardInputs () {
   var TitleInput = cardTitleInput.value;
   var BodyInput = cardBodyInput.value;
 
   if (TitleInput === "" || BodyInput === "") {
-    saveIdeaButton.disabled = true;
+    saveButton.disabled = true;
     console.log('Save button disabled');
   } else {
-    saveIdeaButton.disabled = false;
+    saveButton.disabled = false;
     console.log('Save Button sb lit!');
   }
-
 
 }
 
 
 var objectArrayOfIdeas = [];
-
