@@ -7,11 +7,11 @@ var cardBodyInput = document.querySelector("#text-body-input");
 var saveButton = document.querySelector(".save-button");
 
 var cardArray = [];
-var cardArrayCntr = 0;
+var cardArrayIndx = 0;
 
 // ---------------Event-listeners---------------------------//
 bottomDisplay.addEventListener('click', deleteCard);
-saveButton.addEventListener('click', createIdeaCard);
+// saveButton.addEventListener('click', createIdeaCard);
 saveButton.addEventListener('click', saveCardInfo);
 saveButton.addEventListener('click', resetInputs);
 saveButton.addEventListener('click', checkCardInputs);
@@ -23,16 +23,16 @@ cardBodyInput.addEventListener('keyup', checkCardInputs);
   
  function saveCardInfo(e){
    var cardID = Date.now();
-  //  var cardTitle = "This is the day";
-  //  var cardBody = "Your life will surely change";
     var cardTitle = cardTitleInput.value; 
    var cardBody = cardBodyInput.value;
    console.log('Card body value is: ' + cardBodyInput.value);
 
   idea = new Idea(cardID, cardTitleInput.value, cardBodyInput.value);
-  cardArray[cardArrayCntr] = idea;
-  
-  idea.saveToStorage(cardArray);
+  cardArray[cardArrayIndx] = idea;
+  createIdeaCard(idea);
+  // console.log('card array index is: ' + cardArrayIndx);
+  idea.saveToStorage(cardArray, cardArrayIndx);
+  cardArrayIndx++;
 
 }
 
@@ -44,27 +44,49 @@ function resetInputs(){
 
 
 //------------------append-card---------------//
-function createIdeaCard() {
+// function createIdeaCard() {
+//   bottomDisplay.innerHTML = `
+//   <aside class="card">
+//     <div class="card-title">
+//       <button class="star-card-button" type="button" name="button">X</button>
+//       <button class="delete-card-button" type="button" name="button">X</button>
+//     </div>
+//     <div class="card-body-title">
+//       <h3 class="idea-title" contenteditable="true">${cardTitleInput.value}</h3>
+//       <p class="card-body-text" contenteditable="true">${cardBodyInput.value}</p>
+//     </div>
+//     <div class="card-footer">
+//       <button class="up-quality-button" type="button" name="button">X</button>
+//       <h4>Quality:<span class="quality-level-selection">placeholder</span></h4>
+//       <button class="down-quality-button" type="button" name="button">X</button>
+//     </div>
+//   </aside>
+
+//   ` + bottomDisplay.innerHTML;
+// }
+
+function createIdeaCard(create) {
+  console.log(create);
   bottomDisplay.innerHTML = `
-  <aside class="card">
-    <div class="card-title">
+  <aside class="card" id="${create.id}">
+    <div class="card-title" >
       <button class="star-card-button" type="button" name="button">X</button>
-      <button class="delete-card-button" type="button" name="button">X</button>
+      <button class="delete-card-button" type="button" name="button"><img src="./assets/delete-active.svg"></button>
     </div>
     <div class="card-body-title">
-      <h3 class="idea-title" contenteditable="true">${cardTitleInput.value}</h3>
-      <p class="card-body-text" contenteditable="true">${cardBodyInput.value}</p>
+      <h3 class="idea-title" contenteditable="true">${create.title}</h3>
+      <p class="card-body-text" contenteditable="true">${create.body}</p>
+      <p class="card-body-text" contenteditable="false">${create.id}</p>
     </div>
     <div class="card-footer">
       <button class="up-quality-button" type="button" name="button">X</button>
-      <h4>Quality:<span class="quality-level-selection">placeholder</span></h4>
+      <h4>Quality:<span class="quality-level-selection">${create.quality}</span></h4>
       <button class="down-quality-button" type="button" name="button">X</button>
     </div>
   </aside>
 
   ` + bottomDisplay.innerHTML;
 }
-
 
 //-----------------delete-card----------------//
   function deleteCard(e) {
@@ -77,15 +99,15 @@ function createIdeaCard() {
 
 //-------------top-right-input-validation-------------//
 function checkCardInputs () {
-  var TitleInput = cardTitleInput.value;
-  var BodyInput = cardBodyInput.value;
+  var titleInput = cardTitleInput.value;
+  var bodyInput = cardBodyInput.value;
 
-  if (TitleInput === "" || BodyInput === "") {
+  if (titleInput === "" || bodyInput === "") {
     saveButton.disabled = true;
-    console.log('Save button disabled');
+    // console.log('Save button disabled');
   } else {
     saveButton.disabled = false;
-    console.log('Save Button sb lit!');
+    // console.log('Save Button sb lit!');
   }
 
 }
