@@ -5,7 +5,6 @@ var bottomDisplay = document.querySelector(".bottom-display");
 var cardTitleInput = document.querySelector("#card-title-input");
 var cardBodyInput = document.querySelector("#text-body-input");
 var saveButton = document.querySelector(".save-button");
-
 var cardArray = [];
 var cardArrayCntr = 0;
 
@@ -20,18 +19,18 @@ cardBodyInput.addEventListener('keyup', checkCardInputs);
 
 
 //-----------------Functions-------------------------------//
-  
+
  function saveCardInfo(e){
    var cardID = Date.now();
   //  var cardTitle = "This is the day";
   //  var cardBody = "Your life will surely change";
-    var cardTitle = cardTitleInput.value; 
+    var cardTitle = cardTitleInput.value;
    var cardBody = cardBodyInput.value;
    console.log('Card body value is: ' + cardBodyInput.value);
-
+   
   idea = new Idea(cardID, cardTitleInput.value, cardBodyInput.value);
   cardArray[cardArrayCntr] = idea;
-  
+
   idea.saveToStorage(cardArray);
 
 }

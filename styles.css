@@ -101,14 +101,19 @@ h2 {
 	width: 100%;
 }
 
+#card-title-input {
+  height: 50px;
+}
+
+#text-body-input {
+  height: 75px;
+}
+
 .create-card-inputs {
 	align-items: center;
 	display: table;
 	margin: 10px;
 	border: none;
-	/*
-	grid-template-columns: 	minmax(300px, 1fr));
-    grid-gap: 20px;*/
 }
 
 .input-labels label, .input-labels {
