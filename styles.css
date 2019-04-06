@@ -84,12 +84,11 @@ h2 {
 
 .top-input {
 	background-color: #A9AAD2;
-	height: 300px;
 }
 
 .top-input-form {
 	display: grid;
-	grid-template-columns: 60%;
+	grid-template-columns: 50%;
 	justify-content: center;
 }
 
@@ -97,16 +96,27 @@ h2 {
 	width: 90%;
 }
 
+
 .top-input-form input {
 	width: 100%;
+  border: 1px solid #353567;
 }
 
+
 #card-title-input {
-  height: 50px;
+  height: 60px;
 }
 
 #text-body-input {
-  height: 75px;
+  height: 100px;
+}
+
+
+.save-button {
+  height: 60px;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  border: 1px solid #353567;
 }
 
 .create-card-inputs {
@@ -116,20 +126,29 @@ h2 {
 	border: none;
 }
 
-.input-labels label, .input-labels {
+.input-labels label {
 	display: block;
 	font-size: 12px;
 	color: #1F1F3D;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-size: 20px;
+
 }
 button:disabled {
   background-color: #BFBFDD;
+  border: 1px solid #353567;
 }
 .save-button {
 	color: #FFFFFF;
 	background-color: #1F1F3D;
 	width: 100%;
+  font-size: 20px;
 	border: none;
+}
 
+#search-input {
+  height: 60px;
 }
 
 
