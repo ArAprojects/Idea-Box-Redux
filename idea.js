@@ -8,11 +8,24 @@ class Idea {
 
   }
 
-  saveToStorage(inputArray) {
-    console.log('save storage array: ' + inputArray);
-    var stringifiedContact = JSON.stringify(inputArray);
-    // localStorage.setItem('cardInfo', stringifiedContact);
-    localStorage.setItem(inputArray[0].id, stringifiedContact);
+  saveToStorage(inputArray, arrayIndex) {
+    // console.log('save storage array: ' + inputArray);
+    if (arrayIndex == 0) {
+      var stringifiedContact = JSON.stringify(inputArray);
+      console.log('Array index is: ' + arrayIndex);
+       localStorage.setItem(inputArray[0].id, stringifiedContact);
+    } else {
+      var getUpdateIdea = localStorage.getItem(inputArray[0].id);
+      // console.log('Get from local storage: ' + getUpdateIdea);
+      var currentCardInfo = JSON.parse(getUpdateIdea);
+      // console.log(currentCardInfo);
+      currentCardInfo.push(inputArray);
+      // console.log('Updated array: ' + currentCardInfo);
+      var stringifiedContact = JSON.stringify(inputArray);
+      console.log('Array index is: ' + arrayIndex);
+       localStorage.setItem(inputArray[0].id, stringifiedContact);
+ 
+    }
 
  }
 
