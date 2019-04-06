@@ -27,7 +27,7 @@ cardBodyInput.addEventListener('keyup', checkCardInputs);
     var cardTitle = cardTitleInput.value;
    var cardBody = cardBodyInput.value;
    console.log('Card body value is: ' + cardBodyInput.value);
-   
+
   idea = new Idea(cardID, cardTitleInput.value, cardBodyInput.value);
   cardArray[cardArrayCntr] = idea;
 
@@ -42,12 +42,13 @@ function resetInputs(){
 }
 
 
+
 //------------------append-card---------------//
 function createIdeaCard() {
   bottomDisplay.innerHTML = `
   <aside class="card">
     <div class="card-title">
-      <button class="star-card-button" type="button" name="button">X</button>
+      <button class="star-card-button" type="button" name="button"></button>
       <button class="delete-card-button" type="button" name="button">X</button>
     </div>
     <div class="card-body-title">

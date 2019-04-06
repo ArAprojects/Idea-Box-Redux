@@ -80,6 +80,7 @@ h2 {
 }
 
 .section-right {
+  background-color: #EAEAEA;
 }
 
 .top-input {
@@ -168,23 +169,24 @@ border-right: none;
 }
 
 .bottom-display {
-  background-color: #EAEAEA;
   display: grid;
   justify-content: center;
   grid-template-columns: 31% 31% 31%;
   grid-gap: 20px 20px;
-  padding-top: 20px;
+  padding-top: 30px;
   padding-bottom: 20px;
-  min-height: 600px;
 }
 
+.card {
+  border: 1px solid #353567;
+}
 
 .card-body-title {
   margin: 10px;
 }
 
 .card-body-text {
-  min-height: 80px;
+  min-height: 100px;
 }
 
 .card-title {
