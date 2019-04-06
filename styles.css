@@ -117,7 +117,13 @@ h2 {
   margin-top: 25px;
   margin-bottom: 25px;
   border: 1px solid #353567;
+  color: #FFFFFF;
+	background-color: #1F1F3D;
+	width: 100%;
+  font-size: 20px;
 }
+
+
 
 .create-card-inputs {
 	align-items: center;
@@ -139,19 +145,27 @@ button:disabled {
   background-color: #BFBFDD;
   border: 1px solid #353567;
 }
-.save-button {
-	color: #FFFFFF;
-	background-color: #1F1F3D;
-	width: 100%;
-  font-size: 20px;
-	border: none;
+
+
+.search-cards{
+  display: flex;
+  margin-bottom: 20px;
 }
 
 #search-input {
   height: 60px;
 }
 
+.search-button {
+width: 10%;
+background-color: #eadef4;
+border: 1px solid #353567;
+border-right: none;
+}
 
+.search-img {
+  width: 95%
+}
 
 .bottom-display {
   background-color: #EAEAEA;
