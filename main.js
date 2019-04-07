@@ -48,17 +48,17 @@ function createIdeaCard() {
   bottomDisplay.innerHTML = `
   <aside class="card">
     <div class="card-title">
-      <button class="star-card-button" type="button" name="button"></button>
-      <button class="delete-card-button" type="button" name="button">X</button>
+      <img class="star-card-button" src="assets/star.svg" alt=""></button>
+      <img class="delete-card-button" src="assets/delete.svg" alt="">
     </div>
     <div class="card-body-title">
       <h3 class="idea-title" contenteditable="true">${cardTitleInput.value}</h3>
       <p class="card-body-text" contenteditable="true">${cardBodyInput.value}</p>
     </div>
     <div class="card-footer">
-      <button class="up-quality-button" type="button" name="button">X</button>
+      <img class="up-quality-button" src="assets/upvote.svg" alt="">
       <h4>Quality:<span class="quality-level-selection">placeholder</span></h4>
-      <button class="down-quality-button" type="button" name="button">X</button>
+      <img class="down-quality-button" src="assets/downvote.svg" alt="">
     </div>
   </aside>
 

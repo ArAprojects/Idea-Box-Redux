@@ -147,6 +147,16 @@ button:disabled {
   border: 1px solid #353567;
 }
 
+.card img {
+  width: 10%
+}
+
+.delete-card-button {
+  float: right;
+}
+
+.down-quality-button {
+}
 
 .search-cards{
   display: flex;
@@ -182,17 +192,20 @@ border-right: none;
 }
 
 .card-body-title {
-  margin: 10px;
+  margin: 15px;
+  margin-top: 20px;
+  margin-right: 25px;
+  margin-bottom: 20px;
+  font-size: 24px;
 }
 
 .card-body-text {
-  min-height: 100px;
+  min-height: 125px;
+  font-size: 20px;
 }
 
 .card-title {
   background-color: #1F1F3D;
-  display: flex;
-  justify-content: space-between;
 }
 
 .idea-title {
@@ -204,11 +217,14 @@ border-right: none;
   text-align: center;
   color: #E9E9F3;
   font-size: 20px;
+  margin: auto;
 }
 
 .card-footer {
   background-color: #5356A4;
   justify-content: space-between;
   display: flex;
-  justify-content: space-between;
+  align-items: center;
+  padding: 5px;
+  height: 50px;
 }
