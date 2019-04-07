@@ -70,7 +70,7 @@ function createIdeaCard(create) {
   bottomDisplay.innerHTML = `
   <aside class="card">
     <div class="card-title">
-      <img class="star-card-button" src="assets/star.svg" alt=""></button>
+      <img class="star-card-button" src="assets/star.svg" alt="">
       <img class="delete-card-button" src="assets/delete.svg" alt="">
     </div>
     <div class="card-body-title">
