@@ -36,6 +36,11 @@ h2 {
   width: 90%;
   margin: 0px 10px 20px 10px;
 }
+
+.genius-button {
+  margin-bottom: 20px;
+}
+
 .new-quality-label {
   margin-bottom: 0;
 }
@@ -118,6 +123,10 @@ h2 {
 button:disabled {
   background-color: #BFBFDD;
   border: 1px solid #353567;
+}
+.empty-card-top-bar {
+  background-color: #E9E9F3;
+  height: 40px;
 }
 
 .displayEmpty {
