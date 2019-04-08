@@ -6,7 +6,6 @@ var cardTitleInput = document.querySelector("#card-title-input");
 var cardBodyInput = document.querySelector("#text-body-input");
 var saveButton = document.querySelector(".save-button");
 var blankCard = document.querySelector('.blank-card');
-
 var cardArray = [];
 var cardArrayIndx = 0;
 
@@ -22,7 +21,7 @@ cardBodyInput.addEventListener('keyup', checkCardInputs);
 
 
 //-----------------Functions-------------------------------//
-  
+
  function saveCardInfo(e){
    var cardID = Date.now();
     var cardTitle = cardTitleInput.value; 
@@ -43,6 +42,7 @@ function resetInputs(){
     cardBodyInput.value = "";
     cardTitleInput.value = "";
 }
+
 
 function createIdeaCard(create) {
   blankCard.classList.add('displayEmpty');
