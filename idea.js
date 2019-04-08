@@ -4,7 +4,7 @@ class Idea {
     this.title = title;
     this.body = body;
     this.star = true || false;
-    this.quality = 1 //an integer on the instance? [i]? default to 0
+    this.quality = 0;
 
   }
 

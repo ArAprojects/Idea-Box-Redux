@@ -6,30 +6,25 @@
   padding:0;
   /* border: 1px solid black; */
 }
-
 body {
-	display: grid;
-	grid-template-columns: 20% 80%;
+    display: grid;
+    grid-template-columns: 20% 80%;
 }
-
 .section-left {
-	background-color: #1F1F3D;
+    background-color: #1F1F3D;
 }
-
 h1 {
   color: #FFF;
   font-weight: bold;
   font-size: 16px;
   margin: 20px 10px;
 }
-
 h2 {
   color: #BFBFDD;
   font-size: 12px;
   font-weight: light;
   margin: 20px 10px;
 }
-
 .purple-sidebar-btn {
   background-color: #5356A4;
   color: #E9E9F3;
@@ -42,25 +37,25 @@ h2 {
   margin: 0px 10px 20px 10px;
 }
 
+.genius-button {
+  margin-bottom: 20px;
+}
+
 .new-quality-label {
   margin-bottom: 0;
 }
-
 .new-quality-input {
   height: 40px;
   margin: 0px 10px 20px 10px;
   width: 90%;
 }
-
 .empty-sidebar-bottom-box {
   min-height: 400px;
 }
-
 .filter-buttons {
   display: flex;
   flex-direction: column;
 }
-
 .filter-btn {
   font-size: 16px;
   font-weight: light;
@@ -74,15 +69,12 @@ h2 {
   background-color: #D14119;
   border-left: 3px solid #F58E72;
 }
-
 .sidebar-form {
   border-bottom: 1px solid #353567;
 }
-
 .section-right {
   background-color: #EAEAEA;
 }
-
 .top-input {
 	background-color: #A9AAD2;
 }
@@ -94,9 +86,8 @@ h2 {
 }
 
 #search-input {
-	width: 90%;
+    width: 90%;
 }
-
 
 .top-input-form input {
 	width: 100%;
@@ -124,8 +115,6 @@ h2 {
   font-size: 20px;
 }
 
-
-
 .create-card-inputs {
 	align-items: center;
 	display: table;
@@ -140,40 +129,49 @@ h2 {
   margin-top: 20px;
   margin-bottom: 10px;
   font-size: 20px;
-
 }
+  
 button:disabled {
   background-color: #BFBFDD;
   border: 1px solid #353567;
+}
+  
+.empty-card-top-bar {
+  background-color: #E9E9F3;
+  height: 40px;
+}
+
+.displayEmpty {
+  display: none;
 }
 
 .card img {
   width: 10%
 }
-
+  
 .delete-card-button {
   float: right;
 }
-
+  
 .down-quality-button {
 }
-
+  
 .search-cards{
   display: flex;
   margin-bottom: 20px;
 }
-
+  
 #search-input {
   height: 60px;
 }
-
+  
 .search-button {
 width: 10%;
 background-color: #eadef4;
 border: 1px solid #353567;
 border-right: none;
 }
-
+  
 .search-img {
   width: 95%
 }
@@ -198,28 +196,23 @@ border-right: none;
   margin-bottom: 20px;
   font-size: 24px;
 }
-
 .card-body-text {
   min-height: 125px;
   font-size: 20px;
 }
-
 .card-title {
   background-color: #1F1F3D;
 }
-
 .idea-title {
   margin-top: 10px;
   margin-bottom: 15px;
 }
-
 .card-footer h4 {
   text-align: center;
   color: #E9E9F3;
   font-size: 20px;
   margin: auto;
 }
-
 .card-footer {
   background-color: #5356A4;
   justify-content: space-between;
