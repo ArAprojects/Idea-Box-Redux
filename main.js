@@ -6,6 +6,7 @@ var cardTitleInput = document.querySelector("#card-title-input");
 var cardBodyInput = document.querySelector("#text-body-input");
 var saveButton = document.querySelector(".save-button");
 
+let idea = new Idea ();
 var cardArray = [];
 var cardArrayIndx = 0;
 
@@ -25,15 +26,11 @@ cardBodyInput.addEventListener('keyup', checkCardInputs);
    var cardID = Date.now();
     var cardTitle = cardTitleInput.value; 
    var cardBody = cardBodyInput.value;
-   console.log('Card body value is: ' + cardBodyInput.value);
-
   idea = new Idea(cardID, cardTitleInput.value, cardBodyInput.value);
   cardArray[cardArrayIndx] = idea;
   createIdeaCard(idea);
-  // console.log('card array index is: ' + cardArrayIndx);
   idea.saveToStorage(cardArray, cardArrayIndx);
   cardArrayIndx++;
-
 }
 
 //----------------clearing-inputs-------------//
@@ -42,36 +39,12 @@ function resetInputs(){
     cardTitleInput.value = "";
 }
 
-
-//------------------append-card---------------//
-// function createIdeaCard() {
-//   bottomDisplay.innerHTML = `
-//   <aside class="card">
-//     <div class="card-title">
-//       <button class="star-card-button" type="button" name="button">X</button>
-//       <button class="delete-card-button" type="button" name="button">X</button>
-//     </div>
-//     <div class="card-body-title">
-//       <h3 class="idea-title" contenteditable="true">${cardTitleInput.value}</h3>
-//       <p class="card-body-text" contenteditable="true">${cardBodyInput.value}</p>
-//     </div>
-//     <div class="card-footer">
-//       <button class="up-quality-button" type="button" name="button">X</button>
-//       <h4>Quality:<span class="quality-level-selection">placeholder</span></h4>
-//       <button class="down-quality-button" type="button" name="button">X</button>
-//     </div>
-//   </aside>
-
-//   ` + bottomDisplay.innerHTML;
-// }
-
 function createIdeaCard(create) {
-  console.log(create);
   bottomDisplay.innerHTML = `
-  <aside class="card" id="${create.id}">
-    <div class="card-title" >
+  <aside class="card" data-cardIdentifier="${create.id}">
+    <div class="card-title">
       <button class="star-card-button" type="button" name="button">X</button>
-      <button class="delete-card-button" type="button" name="button"><img src="./assets/delete-active.svg"></button>
+      <button class="delete-card-button" type="button" name="button"><img src="assets/delete-active.svg"></button>
     </div>
     <div class="card-body-title">
       <h3 class="idea-title" contenteditable="true">${create.title}</h3>
@@ -90,10 +63,10 @@ function createIdeaCard(create) {
 
 //-----------------delete-card----------------//
   function deleteCard(e) {
-  if (e.target.className === "delete-card-button") {
+  if (e.target.className === "delete-card-button") { 
+    var card = e.target.closest(".card");
+    idea.deleteFromStorage(card.dataset.cardidentifier);
     e.target.closest(".card").remove();
-    idea.deleteFromStorage(idea.id);
-    // idea.updateQuality(idea.id);
   }
 };
 
@@ -101,16 +74,26 @@ function createIdeaCard(create) {
 function checkCardInputs () {
   var titleInput = cardTitleInput.value;
   var bodyInput = cardBodyInput.value;
-
   if (titleInput === "" || bodyInput === "") {
     saveButton.disabled = true;
-    // console.log('Save button disabled');
   } else {
     saveButton.disabled = false;
-    // console.log('Save Button sb lit!');
   }
-
 }
 
+function setup() {
+  if(localStorage.getItem('cardArray')){
+    var getCardArray = localStorage.getItem('cardArray');
+    // console.log('Get from local storage: ' + getUpdateIdea);
+    var currentCardsInfo = JSON.parse(getCardArray);
+    currentCardsInfo.forEach(function(idea){
+      createIdeaCard(idea);  
+      // cardArray.push(idea);
+      idea = new Idea(idea.id, idea.title, idea.body);
+      cardArray[cardArrayIndx] = idea;
+      cardArrayIndx++;
+    });
+  }
+}
 
-var objectArrayOfIdeas = [];
+window.addEventListener('load', setup(), true);
