@@ -5,9 +5,10 @@ class Idea {
     this.body = body;
     this.star = true || false;
     this.quality = 'Swill';
+ 
+
 
   }
-
   saveToStorage(inputArray, arrayIndex) {
       var stringifiedContact = JSON.stringify(inputArray);
       // localStorage.setItem(inputArray[0].id, stringifiedContact);

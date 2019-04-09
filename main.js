@@ -5,12 +5,14 @@ var bottomDisplay = document.querySelector(".bottom-display");
 var cardTitleInput = document.querySelector("#card-title-input");
 var cardBodyInput = document.querySelector("#text-body-input");
 var saveButton = document.querySelector(".save-button");
-
 let idea = new Idea ();
+var blankCard = document.querySelector('.blank-card');
 var cardArray = [];
 var cardArrayIndx = 0;
 
 // ---------------Event-listeners---------------------------//
+window.addEventListener('load', setup(), true);
+// bottomDisplay.addEventListener('click', updateCard);
 bottomDisplay.addEventListener('click', deleteCard);
 // saveButton.addEventListener('click', createIdeaCard);
 saveButton.addEventListener('click', saveCardInfo);
@@ -20,8 +22,9 @@ cardTitleInput.addEventListener('keyup', checkCardInputs);
 cardBodyInput.addEventListener('keyup', checkCardInputs);
 
 
+
 //-----------------Functions-------------------------------//
-  
+
  function saveCardInfo(e){
    var cardID = Date.now();
     var cardTitle = cardTitleInput.value; 
@@ -39,12 +42,14 @@ function resetInputs(){
     cardTitleInput.value = "";
 }
 
+
 function createIdeaCard(create) {
+  blankCard.classList.add('displayEmpty');
   bottomDisplay.innerHTML = `
-  <aside class="card" data-cardIdentifier="${create.id}">
+  <aside class="card">
     <div class="card-title">
-      <button class="star-card-button" type="button" name="button">X</button>
-      <button class="delete-card-button" type="button" name="button"><img src="assets/delete-active.svg"></button>
+      <img class="star-card-button" src="assets/star.svg" alt="">
+        <img class="delete-card-button" src="assets/delete.svg" alt="">
     </div>
     <div class="card-body-title">
       <h3 class="idea-title" contenteditable="true">${create.title}</h3>
@@ -52,12 +57,11 @@ function createIdeaCard(create) {
       <p class="card-body-text" contenteditable="false">${create.id}</p>
     </div>
     <div class="card-footer">
-      <button class="up-quality-button" type="button" name="button">X</button>
-      <h4>Quality:<span class="quality-level-selection">${create.quality}</span></h4>
-      <button class="down-quality-button" type="button" name="button">X</button>
+      <img class="up-quality-button" src="assets/upvote.svg" alt="">
+      <h4>Quality:<span class="quality-level-selection">Swill</span></h4>
+      <img class="down-quality-button" src="assets/downvote.svg" alt="">
     </div>
   </aside>
-
   ` + bottomDisplay.innerHTML;
 }
 
@@ -80,6 +84,31 @@ function checkCardInputs () {
     saveButton.disabled = false;
   }
 }
+//---------------------Adding / Deleting Blank Card from Bottom Display -----------//
+function displayBlankCard() {
+   console.log(cardArray.length)
+if (cardArray.length === 0) {
+blankCard.classList.remove('displayEmpty');
+  }
+}
+
+//------------------Swill, Plausible, Genius Up/Down functionality-------------//
+
+// function updateCard() {
+//   if (e.target.className === "delete-card-button") {
+//     deleteCard();
+//   }
+//   if (e.target.className === 'up-quality-button' || 'down-quality-button') {
+//     updateCardQuality();
+//   }
+//   if (e.target.className === 'star-card-button') {
+//     star();
+//   }
+// }
+
+// function updateCardQuality() {
+
+// }
 
 function setup() {
   if(localStorage.getItem('cardArray')){
@@ -96,4 +125,5 @@ function setup() {
   }
 }
 
-window.addEventListener('load', setup(), true);
+
+
