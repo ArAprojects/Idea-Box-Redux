@@ -58,7 +58,7 @@ h2 {
 }
 .filter-btn {
   font-size: 16px;
-  font-weight: light;
+  font-weight: lighter;
   text-align: left;
   background-color: #1F1F3D;
   border: none;
@@ -155,6 +155,7 @@ button:disabled {
   float: right;
 }
 
+
 .down-quality-button {
 }
 
@@ -189,6 +190,10 @@ border-right: none;
 
 .card {
   border: 1px solid #353567;
+}
+
+.blank-card {
+  border: 1px solid black;
 }
 
 .card-body-title {
