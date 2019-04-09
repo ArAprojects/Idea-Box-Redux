@@ -46,7 +46,7 @@ function resetInputs(){
 function createIdeaCard(create) {
   blankCard.classList.add('displayEmpty');
   bottomDisplay.innerHTML = `
-  <aside class="card">
+  <aside class="card" data-cardIdentifier="${create.id}">
     <div class="card-title">
       <img class="star-card-button" src="assets/star.svg" alt="">
         <img class="delete-card-button" src="assets/delete.svg" alt="">
