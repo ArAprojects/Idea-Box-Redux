@@ -69,13 +69,23 @@ function createIdeaCard(create) {
   }
 };
 
-//-----------activate buttons-------------//
+//-----------activate-status-icons-------------//
 bottomDisplay.addEventListener('mouseover', e => {
   if(e.target.classList.contains('delete-card-button')) {
   var deleteButton = document.querySelector(".delete-card-button");
   deleteButton.setAttribute('src', 'assets/delete-active.svg');
   }
 })
+
+//-----------deactivate-status-icons--------------
+bottomDisplay.addEventListener('mouseout', e => {
+  if(e.target.classList.contains('delete-card-button')) {
+  var deleteButton = document.querySelector(".delete-card-button");
+  deleteButton.setAttribute('src', 'assets/delete.svg');
+  }
+})
+
+
 
 
 
