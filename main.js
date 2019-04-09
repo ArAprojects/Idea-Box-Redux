@@ -115,8 +115,9 @@ blankCard.classList.remove('displayEmpty');
 //   }
 // }
 
-// function updateCardQuality() {
-
+// function updateCardQuality(e) {
+    // var cardQuality = document.querySelector("card-quality");
+    // cardQuality.innerText = cardArray.quality.value;
 // }
 
 
