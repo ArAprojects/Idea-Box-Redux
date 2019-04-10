@@ -10,6 +10,12 @@ body {
     display: grid;
     grid-template-columns: 20% 80%;
 }
+
+.menu {
+  display: none;
+}
+
+
 .section-left {
     background-color: #1F1F3D;
 }
@@ -253,11 +259,31 @@ border-right: none;
           display: block;
         }
 
+        .menu {
+          display: inline-flex;
+          height: 45px
+          position: absolute;
+          left: 0;
+          margin-left: 10px;
+        }
+
         h1 {
           font-size: 25px;
           margin: 0;
-          padding-top: 20px;
+          padding-top: 10px;
+          padding-bottom: 10px;
+          padding-left: 20px;
           text-align: center;
+        }
+
+        .sidebar-form {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .hidden-menu {
+          display: none;
         }
 
         .new-quality-input,
