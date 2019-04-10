@@ -5,10 +5,14 @@ var bottomDisplay = document.querySelector(".bottom-display");
 var cardTitleInput = document.querySelector("#card-title-input");
 var cardBodyInput = document.querySelector("#text-body-input");
 var saveButton = document.querySelector(".save-button");
+let idea = new Idea ();
+var blankCard = document.querySelector('.blank-card');
 var cardArray = [];
 var cardArrayIndx = 0;
 
 // ---------------Event-listeners---------------------------//
+window.addEventListener('load', setup(), true);
+// bottomDisplay.addEventListener('click', updateCard);
 bottomDisplay.addEventListener('click', deleteCard);
 saveButton.addEventListener('click', saveCardInfo);
 saveButton.addEventListener('click', resetInputs);
@@ -17,15 +21,15 @@ cardTitleInput.addEventListener('keyup', checkCardInputs);
 cardBodyInput.addEventListener('keyup', checkCardInputs);
 
 
+//-----------------Functions-------------------------------//
+
  function saveCardInfo(e){
    var cardID = Date.now();
     var cardTitle = cardTitleInput.value;
    var cardBody = cardBodyInput.value;
-   console.log('Card body value is: ' + cardBodyInput.value);
   idea = new Idea(cardID, cardTitleInput.value, cardBodyInput.value);
   cardArray[cardArrayIndx] = idea;
   createIdeaCard(idea);
-  // console.log('card array index is: ' + cardArrayIndx);
   idea.saveToStorage(cardArray, cardArrayIndx);
   cardArrayIndx++;
 }
@@ -35,13 +39,14 @@ function resetInputs(){
     cardBodyInput.value = "";
     cardTitleInput.value = "";
 }
+
 function createIdeaCard(create) {
-  console.log(create);
+  blankCard.classList.add('displayEmpty');
   bottomDisplay.innerHTML = `
-  <aside class="card">
+  <aside class="card" data-cardIdentifier="${create.id}">
     <div class="card-title">
       <img class="star-card-button" src="assets/star.svg" alt="">
-      <img class="delete-card-button" src="assets/delete.svg" alt="">
+        <img class="delete-card-button" src="assets/delete.svg" alt="">
     </div>
     <div class="card-body-title">
       <h3 class="idea-title" contenteditable="true">${create.title}</h3>
@@ -60,10 +65,10 @@ function createIdeaCard(create) {
 
 //-----------------delete-card----------------//
   function deleteCard(e) {
-  if (e.target.classList.contains("delete-card-button")) {
+  if (e.target.className === "delete-card-button") { 
+    var card = e.target.closest(".card");
+    idea.deleteFromStorage(card.dataset.cardidentifier);
     e.target.closest(".card").remove();
-    idea.deleteFromStorage(idea.id);
-    // idea.updateQuality(idea.id);
   }
 };
 
@@ -104,7 +109,6 @@ bottomDisplay.addEventListener('mouseout', e => {
   }
 })
 
-
 bottomDisplay.addEventListener('click', e => {
   e.target.closest(".star-card-button").getAttribute('src') === 'assets/star.svg' ?
   e.target.closest(".star-card-button").setAttribute('src', 'assets/star-active.svg') :
@@ -122,3 +126,29 @@ function checkCardInputs () {
     saveButton.disabled = false;
   }
 }
+
+//---------------------Adding / Deleting Blank Card from Bottom Display -----------//
+function displayBlankCard() {
+   console.log(cardArray.length)
+if (cardArray.length === 0) {
+blankCard.classList.remove('displayEmpty');
+  }
+})
+
+
+function setup() {
+  if(localStorage.getItem('cardArray')){
+    var getCardArray = localStorage.getItem('cardArray');
+    // console.log('Get from local storage: ' + getUpdateIdea);
+    var currentCardsInfo = JSON.parse(getCardArray);
+    currentCardsInfo.forEach(function(idea){
+      createIdeaCard(idea);  
+      // cardArray.push(idea);
+      idea = new Idea(idea.id, idea.title, idea.body);
+      cardArray[cardArrayIndx] = idea;
+      cardArrayIndx++;
+    });
+  }
+}
+
+
