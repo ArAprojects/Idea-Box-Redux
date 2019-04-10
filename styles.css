@@ -201,11 +201,11 @@ border-right: none;
   margin-top: 20px;
   margin-right: 25px;
   margin-bottom: 20px;
-  font-size: 24px;
+  font-size: 22px;
 }
 .card-body-text {
-  min-height: 125px;
-  font-size: 20px;
+  min-height: 135px;
+  font-size: 18px;
 }
 .card-title {
   background-color: #1F1F3D;
@@ -213,6 +213,7 @@ border-right: none;
 .idea-title {
   margin-top: 10px;
   margin-bottom: 15px;
+  min-height: 75px;
 }
 .card-footer h4 {
   text-align: center;
@@ -228,3 +229,20 @@ border-right: none;
   padding: 5px;
   height: 50px;
 }
+
+
+/* //---------------Media-queries-----------// */
+
+    @media only screen and (max-width: 1050px) {
+
+      .card-footer h4{
+        font-size: 15px;
+      }
+
+      .idea-title {
+        font-size: 18px;
+      }
+
+      .card-body-text {
+        font-size: 15px;
+      }

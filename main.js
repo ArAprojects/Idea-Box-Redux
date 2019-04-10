@@ -46,7 +46,6 @@ function createIdeaCard(create) {
     <div class="card-body-title">
       <h3 class="idea-title" contenteditable="true">${create.title}</h3>
       <p class="card-body-text" contenteditable="true">${create.body}</p>
-      <p class="card-body-text" contenteditable="false">${create.id}</p>
     </div>
     <div class="card-footer">
       <img class="up-quality-button" src="assets/upvote.svg" alt="">
@@ -103,7 +102,6 @@ bottomDisplay.addEventListener('mouseout', e => {
   e.target.closest(".down-quality-button").setAttribute('src', 'assets/downvote.svg');
   }
 })
-
 
 bottomDisplay.addEventListener('click', e => {
   e.target.closest(".star-card-button").getAttribute('src') === 'assets/star.svg' ?
