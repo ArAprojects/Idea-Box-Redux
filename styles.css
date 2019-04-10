@@ -272,3 +272,19 @@ border-right: none;
         .top-input-form {
           display: flex;
         }
+
+        .bottom-display {
+          grid-template-columns: 90%;
+        }
+
+        .card-footer h4{
+          font-size: 20px;
+        }
+
+        .idea-title {
+          font-size: 22px;
+        }
+
+        .card-body-text {
+          font-size: 18px;
+        }
