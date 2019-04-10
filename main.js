@@ -34,7 +34,7 @@ searchBox.addEventListener('keyup', searchRealtime);
   cardArray[cardArrayIndx] = idea;
   createIdeaCard(idea);
   idea.saveToStorage(cardArray, cardArrayIndx);
-  console.log('cardArray after save2Storge: ' + cardArray);
+ // console.log('cardArray after save2Storge: ' + cardArray);
   cardArrayIndx++;
 }
 
@@ -70,9 +70,8 @@ function createIdeaCard(create) {
   function deleteCard(e) {
   if (e.target.className === "delete-card-button") { 
     var card = e.target.closest(".card");
-    var rtr = idea.deleteFromStorage(card.dataset.cardidentifier);
-    console.log('retyrnedArray is: ' + rtr);
-    console.log('cardArray after deleteCard function: ' + cardArray);
+    var rtrndArray = idea.deleteFromStorage(card.dataset.cardidentifier);
+  //  console.log('cardArray after deleteCard function: ' + cardArray);
     e.target.closest(".card").remove();
   }
 };
@@ -115,7 +114,6 @@ blankCard.classList.remove('displayEmpty');
 // }
 
 function searchRealtime(subStrInput){
-  // alert('Searching');
   var subString = searchBox.value;
   var searchArray = cardArray;
   console.log('Card array is: ' + cardArray);
@@ -124,7 +122,6 @@ function searchRealtime(subStrInput){
 function setup() {
   if(localStorage.getItem('cardArray')){
     var getCardArray = localStorage.getItem('cardArray');
-    // console.log('Get from local storage: ' + getUpdateIdea);
     var currentCardsInfo = JSON.parse(getCardArray);
     currentCardsInfo.forEach(function(idea){
       createIdeaCard(idea);  

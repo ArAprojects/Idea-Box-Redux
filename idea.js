@@ -3,32 +3,29 @@ class Idea {
     this.id = id;
     this.title = title;
     this.body = body;
-    this.star = true || false;
+    this.star = false || true;
     this.quality = 'Swill';
- 
-
-
   }
   saveToStorage(inputArray, arrayIndex) {
       var stringifiedContact = JSON.stringify(inputArray);
-      // localStorage.setItem(inputArray[0].id, stringifiedContact);
       localStorage.setItem('cardArray', stringifiedContact);
   }
 
   deleteFromStorage(deleteCard) {
-    // console.log('deleteFromStorage: ' + deleteCard);
+    var arrayIndx = 0;
     var getCardArray = localStorage.getItem('cardArray');
     var deleteArray = JSON.parse(getCardArray);
-    // console.log(cardArray.length);
-    var filteredArray = deleteArray.filter(cardArray => cardArray.id !== parseInt(deleteCard));
-    // console.log(filteredArray.length);
-    cardArray = filteredArray;
-    var stringifiedCardArray = JSON.stringify(filteredArray);
-    // console.log(stringifiedCardArray);
+    var filteredArray = deleteArray.filter(cArray => cArray.id !== parseInt(deleteCard));
+     cardArray= [];
+    //localStorage.clear();
+    filteredArray.forEach(function(el) {
+      idea = new Idea(el.id, el.title, el.body);
+      cardArray[arrayIndx] = idea;
+      arrayIndx++
+    })
+    cardArrayIndx--;
+    var stringifiedCardArray = JSON.stringify(cardArray);
     localStorage.setItem('cardArray', stringifiedCardArray);
-    console.log('cardarray length' + cardArray.length);
-    return cardArray;
-
   }
 
   updateIdea(cardID) {
@@ -36,7 +33,6 @@ class Idea {
     console.log('Get from local storage: ' + getUpdateIdea);
     var parsedCardInfo = JSON.parse(getUpdateIdea);
     console.log(parsedCardInfo);
-  
   }
 
   updateQuality(cardID) { 
@@ -44,6 +40,5 @@ class Idea {
     console.log('Get from you know where storage: ' + getUpdateQuality);
     var parsedCardInfo = JSON.parse(getUpdateQuality);
     console.log(parsedCardInfo);
-  
   }
 }
