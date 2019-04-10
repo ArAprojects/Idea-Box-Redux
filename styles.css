@@ -57,7 +57,7 @@ h2 {
   flex-direction: column;
 }
 .filter-btn {
-  font-size: 16px;
+  font-size: 18px;
   font-weight: lighter;
   text-align: left;
   background-color: #1F1F3D;
@@ -246,3 +246,29 @@ border-right: none;
       .card-body-text {
         font-size: 15px;
       }
+
+      @media only screen and (max-width: 850px) {
+
+        body {
+          display: block;
+        }
+
+        h1 {
+          font-size: 25px;
+          margin: 0;
+          padding-top: 20px;
+          text-align: center;
+        }
+
+        .new-quality-input,
+        .purple-sidebar-btn {
+          width: 95%;
+        }
+
+        .empty-sidebar-bottom-box {
+          min-height: 0;
+        }
+
+        .top-input-form {
+          display: flex;
+        }
