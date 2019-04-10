@@ -8,7 +8,7 @@
 }
 body {
     display: grid;
-    grid-template-columns: 20% 80%;
+    grid-template-columns: 25% 75%;
 }
 .section-left {
     background-color: #1F1F3D;

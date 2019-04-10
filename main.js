@@ -12,9 +12,11 @@ var cardArray = [];
 var cardArrayIndx = 0;
 
 // ---------------Event-listeners---------------------------//
+
+
 window.addEventListener('load', setup(), true);
-// bottomDisplay.addEventListener('click', updateCard);
 bottomDisplay.addEventListener('click', deleteCard);
+bottomDisplay.addEventListener('click', updateCard);
 saveButton.addEventListener('click', saveCardInfo);
 saveButton.addEventListener('click', resetInputs);
 saveButton.addEventListener('click', checkCardInputs);
@@ -28,7 +30,7 @@ searchBox.addEventListener('keyup', searchRealtime);
    var cardID = Date.now();
    var cardTitle = cardTitleInput.value; 
    var cardBody = cardBodyInput.value;
-  idea = new Idea(cardID, cardTitleInput.value, cardBodyInput.value);
+  idea = new Idea(cardID, cardTitleInput.value, cardBodyInput.value, false, quality[0]);
   cardArray[cardArrayIndx] = idea;
   createIdeaCard(idea);
   idea.saveToStorage(cardArray, cardArrayIndx);
@@ -57,7 +59,7 @@ function createIdeaCard(create) {
     </div>
     <div class="card-footer">
       <img class="up-quality-button" src="assets/upvote.svg" alt="">
-      <h4>Quality:<span class="quality-level-selection">placeholder</span></h4>
+      <h4>Quality: <span class="quality-level-selection">Swill</span></h4>
       <img class="down-quality-button" src="assets/downvote.svg" alt="">
     </div>
   </aside>
@@ -67,11 +69,13 @@ function createIdeaCard(create) {
 
 //-----------------delete-card----------------//
   function deleteCard(e) {
-  if (e.target.className === "delete-card-button") { 
+  if (e.target.className === "delete-card-button") {
+  console.log(cardArray.length) 
     var card = e.target.closest(".card");
     var rtrndArray = idea.deleteFromStorage(card.dataset.cardidentifier);
   //  console.log('cardArray after deleteCard function: ' + cardArray);
     e.target.closest(".card").remove();
+    
   }
 };
 
@@ -120,7 +124,7 @@ bottomDisplay.addEventListener('click', e => {
 
 
 //-------------top-right-input-validation-------------//
-function checkCardInputs () {
+function checkCardInputs() {
   var titleInput = cardTitleInput.value;
   var bodyInput = cardBodyInput.value;
   if (titleInput === "" || bodyInput === "") {
@@ -131,13 +135,39 @@ function checkCardInputs () {
 }
 
 //---------------------Adding / Deleting Blank Card from Bottom Display -----------//
-function displayBlankCard() {
-   console.log(cardArray.length)
-if (cardArray.length === 0) {
-blankCard.classList.remove('displayEmpty');
+  function displayBlankCard() {
+    if (cardArray.length > 1) {
+    blankCard.classList.remove('.displayEmpty');
+    console.log(cardArray.length + "hi")
   }
 })
 
+//------------------Swill, Plausible, Genius Up/Down functionality-------------//
+ function findId(e) {
+   var currentCard = e.target.closest(".card");
+   var currentId = parseInt(currentCard.getAttribute('data-cardIdentifier'))
+   var ideaLocation = cardArray.findIndex(i => i.id === currentId)
+   console.log(ideaLocation);
+   return ideaLocation
+ }
+
+function updateCard(e) {
+  if (e.target.className === 'up-quality-button') {
+   var targetedCard = e.target.closest(".card");
+   ideaLocation = findId(e);
+   cardArray[ideaLocation].upVote()
+   var qualityText = e.target.parentNode.childNodes[3].childNodes[1];
+   qualityText.innerText = cardArray[ideaLocation].quality;
+  } 
+  if(e.target.className === 'down-quality-button') {
+   var targetedCard = e.target.closest(".card");
+   ideaLocation = findId(e);
+   cardArray[ideaLocation].downVote()
+   var qualityText = e.target.parentNode.childNodes[3].childNodes[1];
+   qualityText.innerText = cardArray[ideaLocation].quality;
+    ;
+  }
+}
 
 function searchRealtime(subStrInput){
   var subString = searchBox.value;
@@ -158,5 +188,4 @@ function setup() {
     });
   }
 }
-
 

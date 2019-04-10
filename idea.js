@@ -1,11 +1,32 @@
+var titleInput = document.querySelector('.idea-title');
+var bodyInput = document.querySelector('.card-body-text');
+var quality = ["Swill", "Plausible", "Genius"];
+
 class Idea {
   constructor(id, title, body, star, quality) {
     this.id = id;
     this.title = title;
     this.body = body;
     this.star = false || true;
-    this.quality = 'Swill';
+    this.quality = quality';
   }
+
+  upVote() {
+   var currentQualityIndex = quality.indexOf(this.quality)
+   if (currentQualityIndex < quality.length -1) {
+   var newQualityIndex = currentQualityIndex + 1
+   this.quality = quality[newQualityIndex]
+  }
+ }
+ 
+ downVote() {
+   var currentQualityIndex = quality.indexOf(this.quality)
+   if (currentQualityIndex > 0) {
+   var newQualityIndex = currentQualityIndex - 1;
+   this.quality = quality[newQualityIndex]
+  }
+ }
+
   saveToStorage(inputArray, arrayIndex) {
       var stringifiedContact = JSON.stringify(inputArray);
       localStorage.setItem('cardArray', stringifiedContact);
@@ -23,6 +44,7 @@ class Idea {
       cardArray[arrayIndx] = idea;
       arrayIndx++
     })
+    
     cardArrayIndx--;
     var stringifiedCardArray = JSON.stringify(cardArray);
     localStorage.setItem('cardArray', stringifiedCardArray);
