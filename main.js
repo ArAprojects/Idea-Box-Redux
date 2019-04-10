@@ -5,6 +5,7 @@ var bottomDisplay = document.querySelector(".bottom-display");
 var cardTitleInput = document.querySelector("#card-title-input");
 var cardBodyInput = document.querySelector("#text-body-input");
 var saveButton = document.querySelector(".save-button");
+var searchBox = document.querySelector("#search-input");
 let idea = new Idea ();
 var blankCard = document.querySelector('.blank-card');
 var cardArray = [];
@@ -19,18 +20,19 @@ saveButton.addEventListener('click', resetInputs);
 saveButton.addEventListener('click', checkCardInputs);
 cardTitleInput.addEventListener('keyup', checkCardInputs);
 cardBodyInput.addEventListener('keyup', checkCardInputs);
-
+searchBox.addEventListener('keyup', searchRealtime);
 
 //-----------------Functions-------------------------------//
 
  function saveCardInfo(e){
    var cardID = Date.now();
-    var cardTitle = cardTitleInput.value;
+   var cardTitle = cardTitleInput.value; 
    var cardBody = cardBodyInput.value;
   idea = new Idea(cardID, cardTitleInput.value, cardBodyInput.value);
   cardArray[cardArrayIndx] = idea;
   createIdeaCard(idea);
   idea.saveToStorage(cardArray, cardArrayIndx);
+  console.log('cardArray after save2Storge: ' + cardArray);
   cardArrayIndx++;
 }
 
@@ -67,7 +69,9 @@ function createIdeaCard(create) {
   function deleteCard(e) {
   if (e.target.className === "delete-card-button") { 
     var card = e.target.closest(".card");
-    idea.deleteFromStorage(card.dataset.cardidentifier);
+    var rtr = idea.deleteFromStorage(card.dataset.cardidentifier);
+    console.log('retyrnedArray is: ' + rtr);
+    console.log('cardArray after deleteCard function: ' + cardArray);
     e.target.closest(".card").remove();
   }
 };
@@ -136,6 +140,13 @@ blankCard.classList.remove('displayEmpty');
 })
 
 
+function searchRealtime(subStrInput){
+  // alert('Searching');
+  var subString = searchBox.value;
+  var searchArray = cardArray;
+  console.log('Card array is: ' + cardArray);
+  console.log('Search input value = ' + subString);
+}
 function setup() {
   if(localStorage.getItem('cardArray')){
     var getCardArray = localStorage.getItem('cardArray');
