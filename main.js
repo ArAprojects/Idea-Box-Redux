@@ -10,13 +10,11 @@ var cardArrayIndx = 0;
 
 // ---------------Event-listeners---------------------------//
 bottomDisplay.addEventListener('click', deleteCard);
-// saveButton.addEventListener('click', createIdeaCard);
 saveButton.addEventListener('click', saveCardInfo);
 saveButton.addEventListener('click', resetInputs);
 saveButton.addEventListener('click', checkCardInputs);
 cardTitleInput.addEventListener('keyup', checkCardInputs);
 cardBodyInput.addEventListener('keyup', checkCardInputs);
-// deleteButton.addEventListener('mouseover', activate);
 
 
  function saveCardInfo(e){
@@ -114,13 +112,6 @@ bottomDisplay.addEventListener('click', e => {
 })
 
 
-
-
-
-
-
-
-
 //-------------top-right-input-validation-------------//
 function checkCardInputs () {
   var titleInput = cardTitleInput.value;
@@ -130,13 +121,4 @@ function checkCardInputs () {
   } else {
     saveButton.disabled = false;
   }
-
 }
-
-// document.getElementById('job').innerHTML = localStorage['job'] || 'Job Title';
- // document.getElementById('email').innerHTML = localStorage['email'] || 'Email/Other';
-
- // setInterval(function() {
- //      localStorage['job'] = document.getElementById('job').innerHTML;
- //      localStorage['email'] = document.getElementById('email').innerHTML;
- // }, 20 * 1000);
