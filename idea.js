@@ -1,14 +1,35 @@
+var titleInput = document.querySelector('.idea-title');
+var bodyInput = document.querySelector('.card-body-text');
+var quality = ["Swill", "Plausible", "Genius"];
+
 class Idea {
   constructor(id, title, body, star, quality) {
     this.id = id;
     this.title = title;
     this.body = body;
     this.star = true || false;
-    this.quality = 'Swill';
+    this.quality = quality;
  
 
 
   }
+
+  upVote() {
+   var currentQualityIndex = quality.indexOf(this.quality)
+   if (currentQualityIndex < quality.length -1) {
+   var newQualityIndex = currentQualityIndex + 1
+   this.quality = quality[newQualityIndex]
+  }
+ }
+ 
+ downVote() {
+   var currentQualityIndex = quality.indexOf(this.quality)
+   if (currentQualityIndex > 0) {
+   var newQualityIndex = currentQualityIndex - 1;
+   this.quality = quality[newQualityIndex]
+  }
+ }
+
   saveToStorage(inputArray, arrayIndex) {
       var stringifiedContact = JSON.stringify(inputArray);
       // localStorage.setItem(inputArray[0].id, stringifiedContact);
@@ -25,7 +46,8 @@ class Idea {
     var stringifiedCardArray = JSON.stringify(filteredArray);
     // console.log(stringifiedCardArray);
     localStorage.setItem('cardArray', stringifiedCardArray);
-
+    console.log(cardArray.length)
+    displayBlankCard();
   }
 
   updateIdea(cardID) {
@@ -33,7 +55,6 @@ class Idea {
     console.log('Get from local storage: ' + getUpdateIdea);
     var parsedCardInfo = JSON.parse(getUpdateIdea);
     console.log(parsedCardInfo);
-  
   }
 
   updateQuality(cardID) { 

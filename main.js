@@ -2,6 +2,9 @@
 // ---------------Query-selectors-------  -------------------//
 var deleteButton = document.querySelector(".delete-card-button");
 var bottomDisplay = document.querySelector(".bottom-display");
+//Brandy added 
+var cardFooter = document.querySelector('.card-footer')
+//Brandy added ^
 var cardTitleInput = document.querySelector("#card-title-input");
 var cardBodyInput = document.querySelector("#text-body-input");
 var saveButton = document.querySelector(".save-button");
@@ -11,9 +14,14 @@ var cardArray = [];
 var cardArrayIndx = 0;
 
 // ---------------Event-listeners---------------------------//
+
+
 window.addEventListener('load', setup(), true);
 // bottomDisplay.addEventListener('click', updateCard);
 bottomDisplay.addEventListener('click', deleteCard);
+//Brandy added 
+bottomDisplay.addEventListener('click', updateCard);
+//Brandy added ^
 // saveButton.addEventListener('click', createIdeaCard);
 saveButton.addEventListener('click', saveCardInfo);
 saveButton.addEventListener('click', resetInputs);
@@ -29,7 +37,7 @@ cardBodyInput.addEventListener('keyup', checkCardInputs);
    var cardID = Date.now();
     var cardTitle = cardTitleInput.value; 
    var cardBody = cardBodyInput.value;
-  idea = new Idea(cardID, cardTitleInput.value, cardBodyInput.value);
+  idea = new Idea(cardID, cardTitleInput.value, cardBodyInput.value, false, quality[0]);
   cardArray[cardArrayIndx] = idea;
   createIdeaCard(idea);
   idea.saveToStorage(cardArray, cardArrayIndx);
@@ -58,7 +66,7 @@ function createIdeaCard(create) {
     </div>
     <div class="card-footer">
       <img class="up-quality-button" src="assets/upvote.svg" alt="">
-      <h4>Quality:<span class="quality-level-selection">Swill</span></h4>
+      <h4>Quality: <span class="quality-level-selection">Swill</span></h4>
       <img class="down-quality-button" src="assets/downvote.svg" alt="">
     </div>
   </aside>
@@ -67,15 +75,17 @@ function createIdeaCard(create) {
 
 //-----------------delete-card----------------//
   function deleteCard(e) {
-  if (e.target.className === "delete-card-button") { 
+  if (e.target.className === "delete-card-button") {
+  console.log(cardArray.length) 
     var card = e.target.closest(".card");
     idea.deleteFromStorage(card.dataset.cardidentifier);
     e.target.closest(".card").remove();
+    
   }
 };
 
 //-------------top-right-input-validation-------------//
-function checkCardInputs () {
+function checkCardInputs() {
   var titleInput = cardTitleInput.value;
   var bodyInput = cardBodyInput.value;
   if (titleInput === "" || bodyInput === "") {
@@ -85,30 +95,39 @@ function checkCardInputs () {
   }
 }
 //---------------------Adding / Deleting Blank Card from Bottom Display -----------//
-function displayBlankCard() {
-   console.log(cardArray.length)
-if (cardArray.length === 0) {
-blankCard.classList.remove('displayEmpty');
+  function displayBlankCard() {
+    if (cardArray.length < 2) {
+    console.log(cardArray.length + "hi")
+    blankCard.classList.remove('.displayEmpty');
   }
 }
 
 //------------------Swill, Plausible, Genius Up/Down functionality-------------//
+ function findId(e) {
+   var currentCard = e.target.closest(".card");
+   var currentId = parseInt(currentCard.getAttribute('data-cardIdentifier'))
+   var ideaLocation = cardArray.findIndex(i => i.id === currentId)
+   console.log(ideaLocation);
+   return ideaLocation
+ }
 
-// function updateCard() {
-//   if (e.target.className === "delete-card-button") {
-//     deleteCard();
-//   }
-//   if (e.target.className === 'up-quality-button' || 'down-quality-button') {
-//     updateCardQuality();
-//   }
-//   if (e.target.className === 'star-card-button') {
-//     star();
-//   }
-// }
+function updateCard(e) {
+  if (e.target.className === 'up-quality-button') {
+   var targetedCard = e.target.closest(".card");
+   ideaLocation = findId(e);
+   cardArray[ideaLocation].upVote()
+   var qualityText = e.target.parentNode.childNodes[3].childNodes[1];
+   qualityText.innerText = cardArray[ideaLocation].quality;
+  } else if(e.target.className === 'down-quality-button') {
+    var qualityDownVote = e.target.closest(".down-quality-button");
+    downvote()
+    ;
+  }
+}
 
 // function updateCardQuality(e) {
-    // var cardQuality = document.querySelector("card-quality");
-    // cardQuality.innerText = cardArray.quality.value;
+//     var cardQuality = document.querySelector("card-quality");
+//     cardQuality.innerText = cardArray.quality.value;
 // }
 
 function setup() {
@@ -125,6 +144,58 @@ function setup() {
     });
   }
 }
+
+
+
+//Update code//
+
+// var titleInput = document.querySelector('.idea-title');
+// var bodyInput = document.querySelector('.card-body-text');
+// var saveButton = document.querySelector('.save-button');
+// var quality = ["swill", "plausible", "genius"];
+
+// class Idea {
+//  constructor(id, title, body, quality, starred) {
+//    this.id = id
+//    this.title = title;
+//    this.body = body;
+//    this.quality = quality;
+//    this.starred = starred;
+//  }
+ // upVote() {
+ //   var currentQualityIndex = quality.indexOf(this.quality)
+ //   if (currentQualityIndex < quality.length -1) {
+ //   var newQualityIndex = currentQualityIndex + 1
+ //   this.quality = quality[newQualityIndex]
+ // }
+ // }
+ // downVote() {
+ //   var currentQualityIndex = quality.indexOf(this.quality)
+ //   if (currentQualityIndex > 0) {
+ //   var newQualityIndex = currentQualityIndex - 1;
+ //   this.quality = quality[newQualityIndex]
+ //   }
+ // }
+// }
+//--------//
+// function ideaAttributeChange(e) {
+//    var ideaLocation = findId(e);
+//    if(e.target.className === "quality-up-img") {
+//      ideas[ideaLocation].upVote();
+//      var qualitySpan = e.target.parentNode.childNodes[3].childNodes[1]
+//      qualitySpan.innerText = " " + ideas[ideaLocation].quality;
+//  } else if (e.target.className === "quality-down-img") {
+//      ideas[ideaLocation].downVote();
+//      var qualitySpan = e.target.parentNode.childNodes[3].childNodes[1]
+//      qualitySpan.innerText = " " + ideas[ideaLocation].quality;
+//  } else  if(e.target.className === "fave-img") {
+//      ideas[ideaLocation].isStarred();
+//      toggleStar(e);
+//    }
+//  ideas[ideaLocation].saveToLocalStorage()
+//  }
+//  //------------
+
 
 
 
