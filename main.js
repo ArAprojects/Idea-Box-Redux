@@ -72,16 +72,22 @@ function createIdeaCard(create) {
 //-----------activate-status-icons-------------//
 bottomDisplay.addEventListener('mouseover', e => {
   if(e.target.classList.contains('delete-card-button')) {
-  var deleteButton = document.querySelector(".delete-card-button");
-  deleteButton.setAttribute('src', 'assets/delete-active.svg');
+  e.target.closest(".delete-card-button").setAttribute('src', 'assets/delete-active.svg');
   }
 })
+
+bottomDisplay.addEventListener('click', e => {
+  if(e.target.classList.contains('star-card-button')) {
+  e.target.closest(".star-card-button").setAttribute('src', 'assets/star-active.svg');
+  }
+})
+
+
 
 //-----------deactivate-status-icons--------------
 bottomDisplay.addEventListener('mouseout', e => {
   if(e.target.classList.contains('delete-card-button')) {
-  var deleteButton = document.querySelector(".delete-card-button");
-  deleteButton.setAttribute('src', 'assets/delete.svg');
+  e.target.closest(".delete-card-button").setAttribute('src', 'assets/delete.svg');
   }
 })
 
