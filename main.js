@@ -76,20 +76,18 @@ bottomDisplay.addEventListener('mouseover', e => {
   }
 })
 
-bottomDisplay.addEventListener('click', e => {
-  if(e.target.classList.contains('star-card-button')) {
-  e.target.closest(".star-card-button").setAttribute('src', 'assets/star-active.svg');
-  }
-})
-
-
-
-//-----------deactivate-status-icons--------------
 bottomDisplay.addEventListener('mouseout', e => {
   if(e.target.classList.contains('delete-card-button')) {
   e.target.closest(".delete-card-button").setAttribute('src', 'assets/delete.svg');
   }
 })
+
+bottomDisplay.addEventListener('click', e => {
+  e.target.closest(".star-card-button").getAttribute('src') === 'assets/star.svg' ?
+  e.target.closest(".star-card-button").setAttribute('src', 'assets/star-active.svg') :
+  e.target.closest(".star-card-button").setAttribute('src', 'assets/star.svg')
+})
+
 
 
 
