@@ -18,13 +18,16 @@ class Idea {
   deleteFromStorage(deleteCard) {
     // console.log('deleteFromStorage: ' + deleteCard);
     var getCardArray = localStorage.getItem('cardArray');
-    var cardArray = JSON.parse(getCardArray);
+    var deleteArray = JSON.parse(getCardArray);
     // console.log(cardArray.length);
-    var filteredArray = cardArray.filter(cardArray => cardArray.id !== parseInt(deleteCard));
+    var filteredArray = deleteArray.filter(cardArray => cardArray.id !== parseInt(deleteCard));
     // console.log(filteredArray.length);
+    cardArray = filteredArray;
     var stringifiedCardArray = JSON.stringify(filteredArray);
     // console.log(stringifiedCardArray);
     localStorage.setItem('cardArray', stringifiedCardArray);
+    console.log('cardarray length' + cardArray.length);
+    return cardArray;
 
   }
 
