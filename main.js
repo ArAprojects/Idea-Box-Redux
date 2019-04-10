@@ -5,6 +5,7 @@ var bottomDisplay = document.querySelector(".bottom-display");
 var cardTitleInput = document.querySelector("#card-title-input");
 var cardBodyInput = document.querySelector("#text-body-input");
 var saveButton = document.querySelector(".save-button");
+var searchBox = document.querySelector("#search-input");
 let idea = new Idea ();
 var blankCard = document.querySelector('.blank-card');
 var cardArray = [];
@@ -21,19 +22,19 @@ saveButton.addEventListener('click', resetInputs);
 saveButton.addEventListener('click', checkCardInputs);
 cardTitleInput.addEventListener('keyup', checkCardInputs);
 cardBodyInput.addEventListener('keyup', checkCardInputs);
-
-
+searchBox.addEventListener('keyup', searchRealtime);
 
 //-----------------Functions-------------------------------//
 
  function saveCardInfo(e){
    var cardID = Date.now();
-    var cardTitle = cardTitleInput.value; 
+   var cardTitle = cardTitleInput.value; 
    var cardBody = cardBodyInput.value;
   idea = new Idea(cardID, cardTitleInput.value, cardBodyInput.value, false, quality[0]);
   cardArray[cardArrayIndx] = idea;
   createIdeaCard(idea);
   idea.saveToStorage(cardArray, cardArrayIndx);
+ // console.log('cardArray after save2Storge: ' + cardArray);
   cardArrayIndx++;
 }
 
@@ -42,7 +43,6 @@ function resetInputs(){
     cardBodyInput.value = "";
     cardTitleInput.value = "";
 }
-
 
 function createIdeaCard(create) {
   blankCard.classList.add('displayEmpty');
@@ -63,6 +63,7 @@ function createIdeaCard(create) {
       <img class="down-quality-button" src="assets/downvote.svg" alt="">
     </div>
   </aside>
+
   ` + bottomDisplay.innerHTML;
 }
 
@@ -71,11 +72,56 @@ function createIdeaCard(create) {
   if (e.target.className === "delete-card-button") {
   console.log(cardArray.length) 
     var card = e.target.closest(".card");
-    idea.deleteFromStorage(card.dataset.cardidentifier);
+    var rtrndArray = idea.deleteFromStorage(card.dataset.cardidentifier);
+  //  console.log('cardArray after deleteCard function: ' + cardArray);
     e.target.closest(".card").remove();
     
   }
 };
+
+//-----------activate-status-icons-------------//
+bottomDisplay.addEventListener('mouseover', e => {
+  if(e.target.classList.contains('delete-card-button')) {
+  e.target.closest(".delete-card-button").setAttribute('src', 'assets/delete-active.svg');
+  }
+})
+
+bottomDisplay.addEventListener('mouseout', e => {
+  if(e.target.classList.contains('delete-card-button')) {
+  e.target.closest(".delete-card-button").setAttribute('src', 'assets/delete.svg');
+  }
+})
+
+bottomDisplay.addEventListener('mouseover', e => {
+  if(e.target.classList.contains('up-quality-button')) {
+  e.target.closest(".up-quality-button").setAttribute('src', 'assets/upvote-active.svg');
+  }
+})
+
+bottomDisplay.addEventListener('mouseout', e => {
+  if(e.target.classList.contains('up-quality-button')) {
+  e.target.closest(".up-quality-button").setAttribute('src', 'assets/upvote.svg');
+  }
+})
+
+bottomDisplay.addEventListener('mouseover', e => {
+  if(e.target.classList.contains('down-quality-button')) {
+  e.target.closest(".down-quality-button").setAttribute('src', 'assets/downvote-active.svg');
+  }
+})
+
+bottomDisplay.addEventListener('mouseout', e => {
+  if(e.target.classList.contains('down-quality-button')) {
+  e.target.closest(".down-quality-button").setAttribute('src', 'assets/downvote.svg');
+  }
+})
+
+bottomDisplay.addEventListener('click', e => {
+  e.target.closest(".star-card-button").getAttribute('src') === 'assets/star.svg' ?
+  e.target.closest(".star-card-button").setAttribute('src', 'assets/star-active.svg') :
+  e.target.closest(".star-card-button").setAttribute('src', 'assets/star.svg')
+})
+
 
 //-------------top-right-input-validation-------------//
 function checkCardInputs() {
@@ -87,13 +133,14 @@ function checkCardInputs() {
     saveButton.disabled = false;
   }
 }
+
 //---------------------Adding / Deleting Blank Card from Bottom Display -----------//
   function displayBlankCard() {
     if (cardArray.length > 1) {
     blankCard.classList.remove('.displayEmpty');
     console.log(cardArray.length + "hi")
   }
-}
+})
 
 //------------------Swill, Plausible, Genius Up/Down functionality-------------//
  function findId(e) {
@@ -122,10 +169,15 @@ function updateCard(e) {
   }
 }
 
+function searchRealtime(subStrInput){
+  var subString = searchBox.value;
+  var searchArray = cardArray;
+  console.log('Card array is: ' + cardArray);
+  console.log('Search input value = ' + subString);
+}
 function setup() {
   if(localStorage.getItem('cardArray')){
     var getCardArray = localStorage.getItem('cardArray');
-    // console.log('Get from local storage: ' + getUpdateIdea);
     var currentCardsInfo = JSON.parse(getCardArray);
     currentCardsInfo.forEach(function(idea){
       createIdeaCard(idea);  
@@ -136,9 +188,4 @@ function setup() {
     });
   }
 }
-
-
-
-
-
 
