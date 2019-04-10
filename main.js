@@ -2,9 +2,6 @@
 // ---------------Query-selectors-------  -------------------//
 var deleteButton = document.querySelector(".delete-card-button");
 var bottomDisplay = document.querySelector(".bottom-display");
-//Brandy added 
-var cardFooter = document.querySelector('.card-footer')
-//Brandy added ^
 var cardTitleInput = document.querySelector("#card-title-input");
 var cardBodyInput = document.querySelector("#text-body-input");
 var saveButton = document.querySelector(".save-button");
@@ -17,12 +14,8 @@ var cardArrayIndx = 0;
 
 
 window.addEventListener('load', setup(), true);
-// bottomDisplay.addEventListener('click', updateCard);
 bottomDisplay.addEventListener('click', deleteCard);
-//Brandy added 
 bottomDisplay.addEventListener('click', updateCard);
-//Brandy added ^
-// saveButton.addEventListener('click', createIdeaCard);
 saveButton.addEventListener('click', saveCardInfo);
 saveButton.addEventListener('click', resetInputs);
 saveButton.addEventListener('click', checkCardInputs);
@@ -96,9 +89,9 @@ function checkCardInputs() {
 }
 //---------------------Adding / Deleting Blank Card from Bottom Display -----------//
   function displayBlankCard() {
-    if (cardArray.length < 2) {
-    console.log(cardArray.length + "hi")
+    if (cardArray.length > 1) {
     blankCard.classList.remove('.displayEmpty');
+    console.log(cardArray.length + "hi")
   }
 }
 
@@ -118,17 +111,16 @@ function updateCard(e) {
    cardArray[ideaLocation].upVote()
    var qualityText = e.target.parentNode.childNodes[3].childNodes[1];
    qualityText.innerText = cardArray[ideaLocation].quality;
-  } else if(e.target.className === 'down-quality-button') {
-    var qualityDownVote = e.target.closest(".down-quality-button");
-    downvote()
+  } 
+  if(e.target.className === 'down-quality-button') {
+   var targetedCard = e.target.closest(".card");
+   ideaLocation = findId(e);
+   cardArray[ideaLocation].downVote()
+   var qualityText = e.target.parentNode.childNodes[3].childNodes[1];
+   qualityText.innerText = cardArray[ideaLocation].quality;
     ;
   }
 }
-
-// function updateCardQuality(e) {
-//     var cardQuality = document.querySelector("card-quality");
-//     cardQuality.innerText = cardArray.quality.value;
-// }
 
 function setup() {
   if(localStorage.getItem('cardArray')){
@@ -146,55 +138,6 @@ function setup() {
 }
 
 
-
-//Update code//
-
-// var titleInput = document.querySelector('.idea-title');
-// var bodyInput = document.querySelector('.card-body-text');
-// var saveButton = document.querySelector('.save-button');
-// var quality = ["swill", "plausible", "genius"];
-
-// class Idea {
-//  constructor(id, title, body, quality, starred) {
-//    this.id = id
-//    this.title = title;
-//    this.body = body;
-//    this.quality = quality;
-//    this.starred = starred;
-//  }
- // upVote() {
- //   var currentQualityIndex = quality.indexOf(this.quality)
- //   if (currentQualityIndex < quality.length -1) {
- //   var newQualityIndex = currentQualityIndex + 1
- //   this.quality = quality[newQualityIndex]
- // }
- // }
- // downVote() {
- //   var currentQualityIndex = quality.indexOf(this.quality)
- //   if (currentQualityIndex > 0) {
- //   var newQualityIndex = currentQualityIndex - 1;
- //   this.quality = quality[newQualityIndex]
- //   }
- // }
-// }
-//--------//
-// function ideaAttributeChange(e) {
-//    var ideaLocation = findId(e);
-//    if(e.target.className === "quality-up-img") {
-//      ideas[ideaLocation].upVote();
-//      var qualitySpan = e.target.parentNode.childNodes[3].childNodes[1]
-//      qualitySpan.innerText = " " + ideas[ideaLocation].quality;
-//  } else if (e.target.className === "quality-down-img") {
-//      ideas[ideaLocation].downVote();
-//      var qualitySpan = e.target.parentNode.childNodes[3].childNodes[1]
-//      qualitySpan.innerText = " " + ideas[ideaLocation].quality;
-//  } else  if(e.target.className === "fave-img") {
-//      ideas[ideaLocation].isStarred();
-//      toggleStar(e);
-//    }
-//  ideas[ideaLocation].saveToLocalStorage()
-//  }
-//  //------------
 
 
 
