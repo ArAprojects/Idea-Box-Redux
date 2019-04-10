@@ -82,11 +82,38 @@ bottomDisplay.addEventListener('mouseout', e => {
   }
 })
 
+bottomDisplay.addEventListener('mouseover', e => {
+  if(e.target.classList.contains('up-quality-button')) {
+  e.target.closest(".up-quality-button").setAttribute('src', 'assets/upvote-active.svg');
+  }
+})
+
+bottomDisplay.addEventListener('mouseout', e => {
+  if(e.target.classList.contains('up-quality-button')) {
+  e.target.closest(".up-quality-button").setAttribute('src', 'assets/upvote.svg');
+  }
+})
+
+bottomDisplay.addEventListener('mouseover', e => {
+  if(e.target.classList.contains('down-quality-button')) {
+  e.target.closest(".down-quality-button").setAttribute('src', 'assets/downvote-active.svg');
+  }
+})
+
+bottomDisplay.addEventListener('mouseout', e => {
+  if(e.target.classList.contains('down-quality-button')) {
+  e.target.closest(".down-quality-button").setAttribute('src', 'assets/downvote.svg');
+  }
+})
+
+
 bottomDisplay.addEventListener('click', e => {
   e.target.closest(".star-card-button").getAttribute('src') === 'assets/star.svg' ?
   e.target.closest(".star-card-button").setAttribute('src', 'assets/star-active.svg') :
   e.target.closest(".star-card-button").setAttribute('src', 'assets/star.svg')
 })
+
+
 
 
 
