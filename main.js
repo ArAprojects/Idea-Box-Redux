@@ -5,6 +5,10 @@ var bottomDisplay = document.querySelector(".bottom-display");
 var cardTitleInput = document.querySelector("#card-title-input");
 var cardBodyInput = document.querySelector("#text-body-input");
 var saveButton = document.querySelector(".save-button");
+var hidden = document.querySelector(".hidden-menu")
+var menu = document.querySelector(".menu")
+
+
 var cardArray = [];
 var cardArrayIndx = 0;
 
@@ -15,6 +19,7 @@ saveButton.addEventListener('click', resetInputs);
 saveButton.addEventListener('click', checkCardInputs);
 cardTitleInput.addEventListener('keyup', checkCardInputs);
 cardBodyInput.addEventListener('keyup', checkCardInputs);
+menu.addEventListener('click', toggleMenu);
 
 
  function saveCardInfo(e){
@@ -120,3 +125,8 @@ function checkCardInputs () {
     saveButton.disabled = false;
   }
 }
+
+// ------------burger-menu--------------------------/
+  function toggleMenu(){
+    hidden.classList.toggle("hidden-menu")
+  }

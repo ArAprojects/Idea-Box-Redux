@@ -261,7 +261,7 @@ border-right: none;
 
         .menu {
           display: inline-flex;
-          height: 45px
+          height: 45px;
           position: absolute;
           left: 0;
           margin-left: 10px;
@@ -276,11 +276,11 @@ border-right: none;
           text-align: center;
         }
 
-        .sidebar-form {
+        /* .sidebar-form {
           display: flex;
           align-items: center;
           justify-content: center;
-        }
+        } */
 
         .hidden-menu {
           display: none;
