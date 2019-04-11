@@ -1,44 +1,60 @@
+var titleInput = document.querySelector('.idea-title');
+var bodyInput = document.querySelector('.card-body-text');
+var quality = ["Swill", "Plausible", "Genius"];
+
 class Idea {
   constructor(id, title, body, star, quality) {
     this.id = id;
     this.title = title;
     this.body = body;
-    this.star = true || false;
-    this.quality = 0;
-
+    this.star = false || true;
+    this.quality = quality';
   }
 
-  saveToStorage(inputArray, arrayIndex) {
-    // console.log('save storage array: ' + inputArray);
-    if (arrayIndex == 0) {
-      var stringifiedContact = JSON.stringify(inputArray);
-      console.log('Array index is: ' + arrayIndex);
-       localStorage.setItem(inputArray[0].id, stringifiedContact);
-    } else {
-      var getUpdateIdea = localStorage.getItem(inputArray[0].id);
-      // console.log('Get from local storage: ' + getUpdateIdea);
-      var currentCardInfo = JSON.parse(getUpdateIdea);
-      // console.log(currentCardInfo);
-      currentCardInfo.push(inputArray);
-      // console.log('Updated array: ' + currentCardInfo);
-      var stringifiedContact = JSON.stringify(inputArray);
-      console.log('Array index is: ' + arrayIndex);
-       localStorage.setItem(inputArray[0].id, stringifiedContact);
+  upVote() {
+   var currentQualityIndex = quality.indexOf(this.quality)
+   if (currentQualityIndex < quality.length -1) {
+   var newQualityIndex = currentQualityIndex + 1
+   this.quality = quality[newQualityIndex]
+  }
+ }
  
-    }
-
+ downVote() {
+   var currentQualityIndex = quality.indexOf(this.quality)
+   if (currentQualityIndex > 0) {
+   var newQualityIndex = currentQualityIndex - 1;
+   this.quality = quality[newQualityIndex]
+  }
  }
 
-  deleteFromStorage(cardID) {
-    console.log('deleteFromStorage: ' + cardID);
-    localStorage.removeItem(cardID);
+  saveToStorage(inputArray, arrayIndex) {
+      var stringifiedContact = JSON.stringify(inputArray);
+      localStorage.setItem('cardArray', stringifiedContact);
   }
+
+  deleteFromStorage(deleteCard) {
+    var arrayIndx = 0;
+    var getCardArray = localStorage.getItem('cardArray');
+    var deleteArray = JSON.parse(getCardArray);
+    var filteredArray = deleteArray.filter(cArray => cArray.id !== parseInt(deleteCard));
+     cardArray= [];
+    //localStorage.clear();
+    filteredArray.forEach(function(el) {
+      idea = new Idea(el.id, el.title, el.body);
+      cardArray[arrayIndx] = idea;
+      arrayIndx++
+    })
+    
+    cardArrayIndx--;
+    var stringifiedCardArray = JSON.stringify(cardArray);
+    localStorage.setItem('cardArray', stringifiedCardArray);
+  }
+
   updateIdea(cardID) {
     var getUpdateIdea = localStorage.getItem(cardID);
     console.log('Get from local storage: ' + getUpdateIdea);
     var parsedCardInfo = JSON.parse(getUpdateIdea);
     console.log(parsedCardInfo);
-  
   }
 
   updateQuality(cardID) { 
@@ -46,7 +62,5 @@ class Idea {
     console.log('Get from you know where storage: ' + getUpdateQuality);
     var parsedCardInfo = JSON.parse(getUpdateQuality);
     console.log(parsedCardInfo);
-  
   }
 }
-
