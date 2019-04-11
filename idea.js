@@ -11,25 +11,25 @@ class Idea {
     this.quality = quality;
   }
 
-  upVote() {
-   var currentQualityIndex = quality.indexOf(this.quality)
-   if (currentQualityIndex < quality.length -1) {
-   var newQualityIndex = currentQualityIndex + 1
-   this.quality = quality[newQualityIndex]
+  qualityUp() {
+    var currentQuality = quality.indexOf(this.quality);
+    if (currentQuality < quality.length -1) {
+      var newQuality = currentQuality + 1;
+      this.quality = quality[newQuality];
+    }
   }
- }
 
- downVote() {
-   var currentQualityIndex = quality.indexOf(this.quality)
-   if (currentQualityIndex > 0) {
-   var newQualityIndex = currentQualityIndex - 1;
-   this.quality = quality[newQualityIndex]
+  qualityDown() {
+    var currentQuality = quality.indexOf(this.quality);
+    if (currentQuality > 0) {
+      var newQuality = currentQuality - 1;
+      this.quality = quality[newQuality];
+    }
   }
- }
 
   saveToStorage(inputArray, arrayIndex) {
-      var stringifiedContact = JSON.stringify(inputArray);
-      localStorage.setItem('cardArray', stringifiedContact);
+    var stringifiedContact = JSON.stringify(inputArray);
+    localStorage.setItem('cardArray', stringifiedContact);
   }
 
   deleteFromStorage(deleteCard) {
@@ -37,13 +37,12 @@ class Idea {
     var getCardArray = localStorage.getItem('cardArray');
     var deleteArray = JSON.parse(getCardArray);
     var filteredArray = deleteArray.filter(cArray => cArray.id !== parseInt(deleteCard));
-     cardArray= [];
-    //localStorage.clear();
+    cardArray= [];
     filteredArray.forEach(function(el) {
       idea = new Idea(el.id, el.title, el.body);
       cardArray[arrayIndx] = idea;
-      arrayIndx++
-    })
+      arrayIndx++;
+  });
 
     cardArrayIndx--;
     var stringifiedCardArray = JSON.stringify(cardArray);
@@ -52,15 +51,11 @@ class Idea {
 
   updateIdea(cardID) {
     var getUpdateIdea = localStorage.getItem(cardID);
-    console.log('Get from local storage: ' + getUpdateIdea);
     var parsedCardInfo = JSON.parse(getUpdateIdea);
-    console.log(parsedCardInfo);
   }
 
   updateQuality(cardID) {
     var getUpdateQuality = localStorage.getItem(cardID);
-    console.log('Get from you know where storage: ' + getUpdateQuality);
     var parsedCardInfo = JSON.parse(getUpdateQuality);
-    console.log(parsedCardInfo);
   }
 }
