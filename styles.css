@@ -1,11 +1,10 @@
 * {
- /* border: 1px solid pink;*/
   box-sizing: border-box;
   font-family: 'Open Sans';
   margin:0;
   padding:0;
-  /* border: 1px solid black; */
 }
+
 body {
     display: grid;
     grid-template-columns: 25% 75%;
@@ -15,22 +14,24 @@ body {
   display: none;
 }
 
-
 .section-left {
     background-color: #1F1F3D;
 }
+
 h1 {
   color: #FFF;
   font-weight: bold;
   font-size: 16px;
   margin: 20px 10px;
 }
+
 h2 {
   color: #BFBFDD;
   font-size: 12px;
   font-weight: light;
   margin: 20px 10px;
 }
+
 .purple-sidebar-btn {
   background-color: #5356A4;
   color: #E9E9F3;
@@ -50,18 +51,22 @@ h2 {
 .new-quality-label {
   margin-bottom: 0;
 }
+
 .new-quality-input {
   height: 40px;
   margin: 0px 10px 20px 10px;
   width: 90%;
 }
+
 .empty-sidebar-bottom-box {
   min-height: 400px;
 }
+
 .filter-buttons {
   display: flex;
   flex-direction: column;
 }
+
 .filter-btn {
   font-size: 18px;
   font-weight: lighter;
@@ -71,16 +76,20 @@ h2 {
   color: #FFF;
   padding-left: 10px;
 }
+
 .filter-btn:hover {
   background-color: #D14119;
   border-left: 3px solid #F58E72;
 }
+
 .sidebar-form {
   border-bottom: 1px solid #353567;
 }
+
 .section-right {
   background-color: #EAEAEA;
 }
+
 .top-input {
 	background-color: #A9AAD2;
 }
@@ -100,7 +109,6 @@ h2 {
   border: 1px solid #353567;
 }
 
-
 #card-title-input {
   height: 60px;
   font-size: 20px;
@@ -110,7 +118,6 @@ h2 {
   height: 100px;
   font-size: 16px;
 }
-
 
 .save-button {
   height: 60px;
@@ -161,10 +168,6 @@ button:disabled {
   float: right;
 }
 
-
-.down-quality-button {
-}
-
 .search-cards{
   display: flex;
   margin-bottom: 20px;
@@ -182,7 +185,7 @@ border-right: none;
 }
 
 .search-img {
-  width: 95%
+  width: 95%;
 }
 
 .bottom-display {
@@ -209,24 +212,29 @@ border-right: none;
   margin-bottom: 20px;
   font-size: 22px;
 }
+
 .card-body-text {
   min-height: 135px;
   font-size: 18px;
 }
+
 .card-title {
   background-color: #1F1F3D;
 }
+
 .idea-title {
   margin-top: 10px;
   margin-bottom: 15px;
   min-height: 75px;
 }
+
 .card-footer h4 {
   text-align: center;
   color: #E9E9F3;
   font-size: 20px;
   margin: auto;
 }
+
 .card-footer {
   background-color: #5356A4;
   justify-content: space-between;
@@ -236,81 +244,72 @@ border-right: none;
   height: 50px;
 }
 
+@media only screen and (max-width: 1050px) {
+  .card-footer h4{
+    font-size: 15px;
+  }
 
-/* //---------------Media-queries-----------// */
+  .idea-title {
+    font-size: 18px;
+  }
 
-    @media only screen and (max-width: 1050px) {
+  .card-body-text {
+    font-size: 15px;
+  }
+}
 
-      .card-footer h4{
-        font-size: 15px;
-      }
+@media only screen and (max-width: 850px) {
+  body {
+    display: block;
+  }
 
-      .idea-title {
-        font-size: 18px;
-      }
+  .menu {
+    display: inline-flex;
+    height: 45px;
+    position: absolute;
+    left: 0;
+    margin-left: 10px;
+  }
 
-      .card-body-text {
-        font-size: 15px;
-      }
+  h1 {
+    font-size: 25px;
+    margin: 0;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    text-align: center;
+  }
 
-      @media only screen and (max-width: 850px) {
+  .hidden-menu {
+    display: none;
+  }
 
-        body {
-          display: block;
-        }
+  .new-quality-input,
+  .purple-sidebar-btn {
+    width: 95%;
+  }
 
-        .menu {
-          display: inline-flex;
-          height: 45px;
-          position: absolute;
-          left: 0;
-          margin-left: 10px;
-        }
+  .empty-sidebar-bottom-box {
+    min-height: 0;
+  }
 
-        h1 {
-          font-size: 25px;
-          margin: 0;
-          padding-top: 10px;
-          padding-bottom: 10px;
-          padding-left: 20px;
-          text-align: center;
-        }
+  .top-input-form {
+    display: flex;
+  }
 
-        /* .sidebar-form {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-        } */
+  .bottom-display {
+    grid-template-columns: 90%;
+  }
 
-        .hidden-menu {
-          display: none;
-        }
+  .card-footer h4{
+    font-size: 20px;
+  }
 
-        .new-quality-input,
-        .purple-sidebar-btn {
-          width: 95%;
-        }
+  .idea-title {
+    font-size: 22px;
+  }
 
-        .empty-sidebar-bottom-box {
-          min-height: 0;
-        }
-
-        .top-input-form {
-          display: flex;
-        }
-
-        .bottom-display {
-          grid-template-columns: 90%;
-        }
-
-        .card-footer h4{
-          font-size: 20px;
-        }
-
-        .idea-title {
-          font-size: 22px;
-        }
-
-        .card-body-text {
-          font-size: 18px;
-        }
+  .card-body-text {
+    font-size: 18px;
+  }
+}
