@@ -156,6 +156,17 @@ function updateCard(e) {
 function searchRealtime(subStrInput) {
   var subString = searchBox.value;
   var searchArray = cardArray;
+  console.log('Search input value = ' + subString);
+  var resultArray = searchArray.filter(sAr => sAr.body.toLowerCase().includes(subString.toLowerCase()));
+  var resultArrayTitle = searchArray.filter(sAr => sAr.title.toLowerCase().includes(subString.toLowerCase()));
+  var concatArray = resultArray.concat(resultArrayTitle); 
+  console.log('search resuls: ' + resultArray, resultArrayTitle);
+  bottomDisplay.innerHTML = '';
+  if(concatArray.length > 0) {
+  concatArray.forEach(function(idea) {
+      createIdeaCard(idea);
+    });
+  }
 }
 
 function setup() {
