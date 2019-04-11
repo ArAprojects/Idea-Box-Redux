@@ -6,8 +6,8 @@
 }
 
 body {
-    display: grid;
-    grid-template-columns: 25% 75%;
+  display: grid;
+  grid-template-columns: 25% 75%;
 }
 
 .menu {
@@ -15,7 +15,7 @@ body {
 }
 
 .section-left {
-    background-color: #1F1F3D;
+  background-color: #1F1F3D;
 }
 
 h1 {
@@ -34,14 +34,14 @@ h2 {
 
 .purple-sidebar-btn {
   background-color: #5356A4;
-  color: #E9E9F3;
   border: 1px solid #353567;
+  color: #E9E9F3;
   font-size: 14px;
-  font-weight: bold;
   font-stretch: expanded;
+  font-weight: bold;
+  margin: 0px 10px 20px 10px;
   padding: 10px 0px;
   width: 90%;
-  margin: 0px 10px 20px 10px;
 }
 
 .genius-button {
@@ -68,13 +68,13 @@ h2 {
 }
 
 .filter-btn {
-  font-size: 18px;
-  font-weight: lighter;
-  text-align: left;
   background-color: #1F1F3D;
   border: none;
   color: #FFF;
+  font-size: 18px;
+  font-weight: lighter;
   padding-left: 10px;
+  text-align: left;
 }
 
 .filter-btn:hover {
@@ -95,55 +95,55 @@ h2 {
 }
 
 .top-input-form {
-	display: grid;
-	grid-template-columns: 50%;
-	justify-content: center;
+  display: grid;
+  grid-template-columns: 50%;
+  justify-content: center;
 }
 
 #search-input {
-    width: 90%;
+  width: 90%;
 }
 
 .top-input-form textarea, input {
-	width: 100%;
   border: 1px solid #353567;
+  width: 100%;
 }
 
 #card-title-input {
-  height: 60px;
   font-size: 20px;
+  height: 60px;
 }
 
 #text-body-input {
-  height: 100px;
   font-size: 16px;
+  height: 100px;
 }
 
 .save-button {
-  height: 60px;
-  margin-top: 25px;
-  margin-bottom: 25px;
+  background-color: #1F1F3D;
+  width: 100%;
   border: 1px solid #353567;
   color: #FFFFFF;
-	background-color: #1F1F3D;
-	width: 100%;
   font-size: 20px;
+  height: 60px;
+  margin-bottom: 25px;
+  margin-top: 25px;
 }
 
 .create-card-inputs {
-	align-items: center;
-	display: table;
-	margin: 10px;
-	border: none;
+  align-items: center;
+  border: none;
+  display: table;
+  margin: 10px;
 }
 
 .input-labels label {
-	display: block;
-	font-size: 12px;
-	color: #1F1F3D;
-  margin-top: 20px;
-  margin-bottom: 10px;
+  color: #1F1F3D;
+  display: block;
+  font-size: 12px;
   font-size: 20px;
+  margin-bottom: 10px;
+  margin-top: 20px;
 }
 
 button:disabled {
@@ -178,10 +178,10 @@ button:disabled {
 }
 
 .search-button {
-width: 10%;
-background-color: #eadef4;
-border: 1px solid #353567;
-border-right: none;
+  background-color: #eadef4;
+  border-right: none;
+  border: 1px solid #353567;
+  width: 10%;
 }
 
 .search-img {
@@ -190,11 +190,11 @@ border-right: none;
 
 .bottom-display {
   display: grid;
-  justify-content: center;
-  grid-template-columns: 31% 31% 31%;
   grid-gap: 20px 20px;
-  padding-top: 30px;
+  grid-template-columns: 31% 31% 31%;
+  justify-content: center;
   padding-bottom: 20px;
+  padding-top: 30px;
 }
 
 .card {
@@ -206,16 +206,16 @@ border-right: none;
 }
 
 .card-body-title {
-  margin: 15px;
-  margin-top: 20px;
-  margin-right: 25px;
-  margin-bottom: 20px;
   font-size: 22px;
+  margin-bottom: 20px;
+  margin-right: 25px;
+  margin-top: 20px;
+  margin: 15px;
 }
 
 .card-body-text {
-  min-height: 135px;
   font-size: 18px;
+  min-height: 135px;
 }
 
 .card-title {
@@ -223,25 +223,25 @@ border-right: none;
 }
 
 .idea-title {
-  margin-top: 10px;
   margin-bottom: 15px;
+  margin-top: 10px;
   min-height: 75px;
 }
 
 .card-footer h4 {
-  text-align: center;
   color: #E9E9F3;
   font-size: 20px;
   margin: auto;
+  text-align: center;
 }
 
 .card-footer {
-  background-color: #5356A4;
-  justify-content: space-between;
-  display: flex;
   align-items: center;
-  padding: 5px;
+  background-color: #5356A4;
+  display: flex;
   height: 50px;
+  justify-content: space-between;
+  padding: 5px;
 }
 
 @media only screen and (max-width: 1050px) {
@@ -266,17 +266,17 @@ border-right: none;
   .menu {
     display: inline-flex;
     height: 45px;
-    position: absolute;
     left: 0;
     margin-left: 10px;
+    position: absolute;
   }
 
   h1 {
     font-size: 25px;
     margin: 0;
-    padding-top: 10px;
     padding-bottom: 10px;
     padding-left: 20px;
+    padding-top: 10px;
     text-align: center;
   }
 
