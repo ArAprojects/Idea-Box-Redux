@@ -5,6 +5,8 @@ var bottomDisplay = document.querySelector(".bottom-display");
 var cardTitleInput = document.querySelector("#card-title-input");
 var cardBodyInput = document.querySelector("#text-body-input");
 var saveButton = document.querySelector(".save-button");
+var hidden = document.querySelector(".hidden-menu")
+var menu = document.querySelector(".menu")
 var searchBox = document.querySelector("#search-input");
 let idea = new Idea ();
 var blankCard = document.querySelector('.blank-card');
@@ -22,6 +24,7 @@ saveButton.addEventListener('click', resetInputs);
 saveButton.addEventListener('click', checkCardInputs);
 cardTitleInput.addEventListener('keyup', checkCardInputs);
 cardBodyInput.addEventListener('keyup', checkCardInputs);
+menu.addEventListener('click', toggleMenu);
 searchBox.addEventListener('keyup', searchRealtime);
 
 //-----------------Functions-------------------------------//
@@ -55,7 +58,6 @@ function createIdeaCard(create) {
     <div class="card-body-title">
       <h3 class="idea-title" contenteditable="true">${create.title}</h3>
       <p class="card-body-text" contenteditable="true">${create.body}</p>
-      <p class="card-body-text" contenteditable="false">${create.id}</p>
     </div>
     <div class="card-footer">
       <img class="up-quality-button" src="assets/upvote.svg" alt="">
@@ -133,6 +135,12 @@ function checkCardInputs() {
     saveButton.disabled = false;
   }
 }
+
+
+// ------------burger-menu--------------------------/
+  function toggleMenu(){
+    hidden.classList.toggle("hidden-menu")
+  }
 
 //---------------------Adding / Deleting Blank Card from Bottom Display -----------//
   function displayBlankCard() {

@@ -10,6 +10,12 @@ body {
     display: grid;
     grid-template-columns: 25% 75%;
 }
+
+.menu {
+  display: none;
+}
+
+
 .section-left {
     background-color: #1F1F3D;
 }
@@ -57,7 +63,7 @@ h2 {
   flex-direction: column;
 }
 .filter-btn {
-  font-size: 16px;
+  font-size: 18px;
   font-weight: lighter;
   text-align: left;
   background-color: #1F1F3D;
@@ -201,11 +207,11 @@ border-right: none;
   margin-top: 20px;
   margin-right: 25px;
   margin-bottom: 20px;
-  font-size: 24px;
+  font-size: 22px;
 }
 .card-body-text {
-  min-height: 125px;
-  font-size: 20px;
+  min-height: 135px;
+  font-size: 18px;
 }
 .card-title {
   background-color: #1F1F3D;
@@ -213,6 +219,7 @@ border-right: none;
 .idea-title {
   margin-top: 10px;
   margin-bottom: 15px;
+  min-height: 75px;
 }
 .card-footer h4 {
   text-align: center;
@@ -228,3 +235,82 @@ border-right: none;
   padding: 5px;
   height: 50px;
 }
+
+
+/* //---------------Media-queries-----------// */
+
+    @media only screen and (max-width: 1050px) {
+
+      .card-footer h4{
+        font-size: 15px;
+      }
+
+      .idea-title {
+        font-size: 18px;
+      }
+
+      .card-body-text {
+        font-size: 15px;
+      }
+
+      @media only screen and (max-width: 850px) {
+
+        body {
+          display: block;
+        }
+
+        .menu {
+          display: inline-flex;
+          height: 45px;
+          position: absolute;
+          left: 0;
+          margin-left: 10px;
+        }
+
+        h1 {
+          font-size: 25px;
+          margin: 0;
+          padding-top: 10px;
+          padding-bottom: 10px;
+          padding-left: 20px;
+          text-align: center;
+        }
+
+        /* .sidebar-form {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        } */
+
+        .hidden-menu {
+          display: none;
+        }
+
+        .new-quality-input,
+        .purple-sidebar-btn {
+          width: 95%;
+        }
+
+        .empty-sidebar-bottom-box {
+          min-height: 0;
+        }
+
+        .top-input-form {
+          display: flex;
+        }
+
+        .bottom-display {
+          grid-template-columns: 90%;
+        }
+
+        .card-footer h4{
+          font-size: 20px;
+        }
+
+        .idea-title {
+          font-size: 22px;
+        }
+
+        .card-body-text {
+          font-size: 18px;
+        }
