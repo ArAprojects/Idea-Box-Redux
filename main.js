@@ -110,15 +110,24 @@ blankCard.classList.remove('displayEmpty');
     // var cardQuality = document.querySelector("card-quality");
     // cardQuality.innerText = cardArray.quality.value;
 // }
+function combineArrays (array1, array2) {  
+     array2.forEach(function(element) {
+     if(!array1.includes(element)){
+        array1.push(element);
+      }
+    });
+    return array1;
+  }
+
 
 function searchRealtime(subStrInput){
   var subString = searchBox.value;
   var searchArray = cardArray;
   console.log('Search input value = ' + subString);
-  var resultArray = searchArray.filter(sAr => sAr.body.toLowerCase().includes(subString.toLowerCase()));
-  var resultArrayTitle = searchArray.filter(sAr => sAr.title.toLowerCase().includes(subString.toLowerCase()));
-  var concatArray = resultArray.concat(resultArrayTitle); 
-  console.log('search resuls: ' + resultArray, resultArrayTitle);
+  var arrayBody = searchArray.filter(sAr => sAr.body.toLowerCase().includes(subString.toLowerCase()));
+  var arrayTitle = searchArray.filter(sAr => sAr.title.toLowerCase().includes(subString.toLowerCase()));
+  var concatArray = combineArrays(arrayBody, arrayTitle);
+  // var concatArray = resultArray.concat(resultArrayTitle); 
   bottomDisplay.innerHTML = '';
   if(concatArray.length > 0) {
   concatArray.forEach(function(idea) {
