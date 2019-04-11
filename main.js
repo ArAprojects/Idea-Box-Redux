@@ -15,7 +15,6 @@ var cardArrayIndx = 0;
 window.addEventListener('load', setup(), true);
 // bottomDisplay.addEventListener('click', updateCard);
 bottomDisplay.addEventListener('click', deleteCard);
-// saveButton.addEventListener('click', createIdeaCard);
 saveButton.addEventListener('click', saveCardInfo);
 saveButton.addEventListener('click', resetInputs);
 saveButton.addEventListener('click', checkCardInputs);
@@ -34,7 +33,6 @@ searchBox.addEventListener('keyup', searchRealtime);
   cardArray[cardArrayIndx] = idea;
   createIdeaCard(idea);
   idea.saveToStorage(cardArray, cardArrayIndx);
- // console.log('cardArray after save2Storge: ' + cardArray);
   cardArrayIndx++;
 }
 
@@ -116,8 +114,17 @@ blankCard.classList.remove('displayEmpty');
 function searchRealtime(subStrInput){
   var subString = searchBox.value;
   var searchArray = cardArray;
-  console.log('Card array is: ' + cardArray);
   console.log('Search input value = ' + subString);
+  var resultArray = searchArray.filter(sAr => sAr.body.toLowerCase().includes(subString.toLowerCase()));
+  var resultArrayTitle = searchArray.filter(sAr => sAr.title.toLowerCase().includes(subString.toLowerCase()));
+  var concatArray = resultArray.concat(resultArrayTitle); 
+  console.log('search resuls: ' + resultArray, resultArrayTitle);
+  bottomDisplay.innerHTML = '';
+  if(concatArray.length > 0) {
+  concatArray.forEach(function(idea) {
+      createIdeaCard(idea);
+    });
+  }
 }
 function setup() {
   if(localStorage.getItem('cardArray')){
