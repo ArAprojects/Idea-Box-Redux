@@ -1,6 +1,7 @@
 var saveBtn = document.querySelector('.save-button');
 var createInputs = document.querySelector('.create-card-inputs');
 var card = document.querySelector('.bottom-display');
+var blankCard = document.querySelector('.blank-card');
 var ideas = JSON.parse(localStorage.getItem('ideas')) || [];
 
 saveBtn.addEventListener('click', addIdea);
@@ -45,12 +46,12 @@ function createCard(ideas, card) {
 card.addEventListener('submit', addIdea);
 createCard(ideas, card);
 
-// function displayBlankCard() {
-//    console.log(cardArray.length)
-// if (cardArray.length === 0) {
-// blankCard.classList.remove('displayEmpty');
-//   }
-// }
+function displayBlankCard() {
+   console.log(cardArray.length)
+if (cardArray.length === 0) {
+blankCard.classList.remove('displayEmpty');
+  }
+}
 
 
 
