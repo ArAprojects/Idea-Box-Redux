@@ -8,7 +8,7 @@ class Idea {
     this.title = title;
     this.body = body;
     this.star = false || true;
-    this.quality = quality';
+    this.quality = quality;
   }
 
   upVote() {
@@ -18,7 +18,7 @@ class Idea {
    this.quality = quality[newQualityIndex]
   }
  }
- 
+
  downVote() {
    var currentQualityIndex = quality.indexOf(this.quality)
    if (currentQualityIndex > 0) {
@@ -44,7 +44,7 @@ class Idea {
       cardArray[arrayIndx] = idea;
       arrayIndx++
     })
-    
+
     cardArrayIndx--;
     var stringifiedCardArray = JSON.stringify(cardArray);
     localStorage.setItem('cardArray', stringifiedCardArray);
@@ -57,7 +57,7 @@ class Idea {
     console.log(parsedCardInfo);
   }
 
-  updateQuality(cardID) { 
+  updateQuality(cardID) {
     var getUpdateQuality = localStorage.getItem(cardID);
     console.log('Get from you know where storage: ' + getUpdateQuality);
     var parsedCardInfo = JSON.parse(getUpdateQuality);

@@ -31,7 +31,7 @@ searchBox.addEventListener('keyup', searchRealtime);
 
  function saveCardInfo(e){
    var cardID = Date.now();
-   var cardTitle = cardTitleInput.value; 
+   var cardTitle = cardTitleInput.value;
    var cardBody = cardBodyInput.value;
   idea = new Idea(cardID, cardTitleInput.value, cardBodyInput.value, false, quality[0]);
   cardArray[cardArrayIndx] = idea;
@@ -48,7 +48,7 @@ function resetInputs(){
 }
 
 function createIdeaCard(create) {
-  blankCard.classList.add('displayEmpty');
+  // blankCard.classList.add('displayEmpty');
   bottomDisplay.innerHTML = `
   <aside class="card" data-cardIdentifier="${create.id}">
     <div class="card-title">
@@ -72,12 +72,12 @@ function createIdeaCard(create) {
 //-----------------delete-card----------------//
   function deleteCard(e) {
   if (e.target.className === "delete-card-button") {
-  console.log(cardArray.length) 
+  console.log(cardArray.length)
     var card = e.target.closest(".card");
     var rtrndArray = idea.deleteFromStorage(card.dataset.cardidentifier);
   //  console.log('cardArray after deleteCard function: ' + cardArray);
     e.target.closest(".card").remove();
-    
+
   }
 };
 
@@ -148,7 +148,7 @@ function checkCardInputs() {
     blankCard.classList.remove('.displayEmpty');
     console.log(cardArray.length + "hi")
   }
-})
+}
 
 //------------------Swill, Plausible, Genius Up/Down functionality-------------//
  function findId(e) {
@@ -166,7 +166,7 @@ function updateCard(e) {
    cardArray[ideaLocation].upVote()
    var qualityText = e.target.parentNode.childNodes[3].childNodes[1];
    qualityText.innerText = cardArray[ideaLocation].quality;
-  } 
+  }
   if(e.target.className === 'down-quality-button') {
    var targetedCard = e.target.closest(".card");
    ideaLocation = findId(e);
@@ -188,7 +188,7 @@ function setup() {
     var getCardArray = localStorage.getItem('cardArray');
     var currentCardsInfo = JSON.parse(getCardArray);
     currentCardsInfo.forEach(function(idea){
-      createIdeaCard(idea);  
+      createIdeaCard(idea);
       // cardArray.push(idea);
       idea = new Idea(idea.id, idea.title, idea.body);
       cardArray[cardArrayIndx] = idea;
@@ -196,4 +196,3 @@ function setup() {
     });
   }
 }
-
