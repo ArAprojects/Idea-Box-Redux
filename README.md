@@ -11,4 +11,3 @@ Dives into local storage functionality as well as object manipulation, with a us
  Our site allows users to create Idea 'cards' and then save, sort, search, and delete as neccessary. 
 
 
-Screen Shot 2019-04-17 at 3.31.24 AM
